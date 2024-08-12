@@ -1,6 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import HomeView from '../views/HomeView.vue';
 import LayoutFull from '@/layouts/LayoutFull.vue';
+import PessoaView from '@/views/PessoaView.vue'
+import RegistroView from '@/views/RegistroView.vue'
+import MoradiaView from '@/views/MoradiaView.vue'
+import AnimalView from '@/views/AnimalView.vue'
+
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -11,9 +15,22 @@ const router = createRouter({
       component: LayoutFull,
       children: [
         {
-          path: '',
-          name: 'Home',
-          component: HomeView,
+          path: '/Pessoa',
+          name: 'Pessoa',
+          component: PessoaView,
+        },
+        {
+          path: '/Registro',
+          name: 'Registro',
+          component: RegistroView,
+        },{
+          path: '/Moradia',
+          name: 'Moradia',
+          component: MoradiaView,
+        },{
+          path: '/Animal',
+          name: 'Animal',
+          component: AnimalView,
         },
       ],
     },
