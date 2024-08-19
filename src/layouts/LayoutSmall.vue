@@ -1,5 +1,7 @@
 <script setup>
   import SmallHeader from '@/components/templates/small/SmallHeader.vue';
+  import SmallFooter from '@/components/templates/small/SmallFooter.vue';
+
 </script>
 
 <template>
@@ -10,5 +12,8 @@
     <main>
       <router-view />
     </main>
+    <footer>
+      <small-footer/>
+    </footer>
   </div>
 </template>
