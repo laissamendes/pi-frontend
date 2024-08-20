@@ -32,6 +32,7 @@ const router = createRouter({
           name: 'Animal',
           component: AnimalView,
         },
+        
       ],
     },
   ],
