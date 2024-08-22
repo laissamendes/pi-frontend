@@ -1,7 +1,9 @@
 <script setup></script>
 <template>
   <div class="logo">
-    <img src="@/assets/logo.png" alt="Raízes Digitais Logo" />
+    <router-link to="/Inicio">
+      <img src="@/assets/logo.png" alt="Raízes Digitais Logo" />
+    </router-link>
   </div>
 </template>
 

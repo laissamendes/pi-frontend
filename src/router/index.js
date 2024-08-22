@@ -4,7 +4,7 @@ import PessoaView from '@/views/PessoaView.vue'
 import RegistroView from '@/views/RegistroView.vue'
 import MoradiaView from '@/views/MoradiaView.vue'
 import AnimalView from '@/views/AnimalView.vue'
-
+import InicioView from '@/views/InicioView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -32,7 +32,11 @@ const router = createRouter({
           name: 'Animal',
           component: AnimalView,
         },
-        
+        {
+          path: '/Inicio',
+          name: 'Inicio',
+          component: InicioView,
+        }
       ],
     },
   ],
