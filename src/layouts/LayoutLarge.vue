@@ -10,6 +10,7 @@
     </header>
    
     <main>
+      large
       <router-view />
     </main>
     <footer>

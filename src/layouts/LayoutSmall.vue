@@ -10,6 +10,7 @@
       <small-header />
     </header>
     <main>
+      small
       <router-view />
     </main>
     <footer>

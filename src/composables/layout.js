@@ -5,6 +5,7 @@ export function useLayout() {
 
   const updateLayout = () => {
     const width = window.innerWidth;
+    console.log(width)
     if (width < 768) {
       layout.value = defineAsyncComponent(() =>
         import('@/layouts/LayoutSmall.vue'),

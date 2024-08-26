@@ -2,6 +2,7 @@
 import { ref } from 'vue';
 import { onBeforeRouteUpdate } from 'vue-router';
 import LogoTitle from '@/components/templates/LogoTitle.vue';
+import HeaderTitle from '../HeaderTitle.vue';
 
 const showMenu = ref(false);
 
@@ -11,7 +12,10 @@ onBeforeRouteUpdate(() => {
 </script>
 
 <template>
+  <div>
     <logo-title />
+    <HeaderTitle />
+  </div>
 
   <div id="headerMenu" :style="{ display: showMenu ? 'block' : 'none'}">
     <router-link to="/Animal">
@@ -39,7 +43,7 @@ onBeforeRouteUpdate(() => {
   top: 0%;
   right: 0;
   z-index: 1;
-  width: 10%;
+  width: 15%;
   background-color: #FEFAE0;
   color: #606C38 ;
   display: block;

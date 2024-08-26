@@ -12,6 +12,7 @@
     </header>
     
     <main>
+      medium
       <router-view />
     </main>
     <footer>

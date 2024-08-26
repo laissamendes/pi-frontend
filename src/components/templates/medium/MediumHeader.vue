@@ -39,7 +39,7 @@ onBeforeRouteUpdate(() => {
   top: 0%;
   right: 0;
   z-index: 1;
-  width: 10%;
+  width: 20%;
   background-color: #FEFAE0;
   color: #606C38 ;
   display: block;
