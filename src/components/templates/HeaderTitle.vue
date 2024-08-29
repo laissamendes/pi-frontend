@@ -4,23 +4,13 @@ const templateStore = useTemplateStore()
 </script>
 <template>
   <div class="header-title">
-    <span>{{ templateStore.title }}</span>
+    <span><h1><strong>{{ templateStore.title }}</strong></h1></span>
   </div>
 </template>
 
 <style scoped>
-.logo {
-  display: flex;
-  padding-left: 3rem;
-  gap: 1rem;
-  align-items: center;
-}
-
-.logo img {
-  width: 8rem;
-  height: 8rem;
-  border-radius: 40%;
-  object-fit: cover;
+.header-titlle>span>h1{
+  color: #6A2C0F;
 }
 
 </style>
