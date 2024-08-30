@@ -4,7 +4,9 @@
 
 </script>
 <template>
+  <div class="teste">
   <div id="layout-large">
+  </div> 
     <header>
       <large-header />
     </header>
@@ -17,3 +19,10 @@
     </footer>
   </div>
 </template>
+
+<style scoped>
+.teste{
+  display: flex;
+  height: 720px;
+  flex-direction:column;
+}</style>

@@ -2,6 +2,7 @@
 </script>
 
 <template>
+    <div class="div-mae">
     <div class="navigation">
         <div class="nav-item">
             <router-link to="/Pessoa" class="nav-link" aria-label="Pessoa">
@@ -28,11 +29,11 @@
             </router-link>
         </div>
     </div>
+</div>
 </template>
-
 <style scoped>
 i {
-    font-size: 100px; /* Tamanho dos ícones */
+    font-size: 60px; /* Ajuste o tamanho dos ícones conforme necessário */
     color: rgb(121, 31, 31); /* Cor dos ícones */
 }
 
@@ -44,13 +45,16 @@ i {
     align-items: center;
     justify-items: center;
     text-align: center; 
+    
 }
 
 .nav-item {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%; 
+    justify-content: flex-end; /* Move o conteúdo para baixo */
+    width: 200px; /* Ajuste conforme necessário */
+    height: 170px; /* Ajuste conforme necessário */
 }
 
 .nav-link {
@@ -63,7 +67,11 @@ i {
     border: 2px solid rgb(121, 31, 31); 
     border-radius: 8px; 
     padding: 10px; 
-    transition: color 0.3s ease, border-color 0.3s ease;}
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    transition: color 0.3s ease, border-color 0.3s ease;
+}
 
 .nav-link:hover {
     color: rgb(150, 50, 50); 
@@ -76,5 +84,12 @@ i {
 
 .nav-link i {
     margin: 0; 
+}
+.div-mae{
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    height: 100vh; /* Ocupa toda a altura da viewport */
+    text-align: center; /* Centraliza o texto */
 }
 </style>
