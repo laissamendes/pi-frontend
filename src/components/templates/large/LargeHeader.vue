@@ -12,7 +12,7 @@ onBeforeRouteUpdate(() => {
 </script>
 
 <template>
-  <div>
+  <div class="logo-title">
     <logo-title />
     <HeaderTitle />
   </div>
@@ -87,5 +87,10 @@ onBeforeRouteUpdate(() => {
 
 .hamburger:hover {
   cursor: pointer;
+}
+.logo-title{
+  display: flex;
+  justify-items: baseline;
+  color: #6A2C0F;
 }
 </style>

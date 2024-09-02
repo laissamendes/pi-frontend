@@ -15,7 +15,15 @@
     <input type="submit" name="submit" id="input-submit" />
   </div>
 
-  <div v-if="">
+  <div class="infos">
+  <img src="" alt="" style="border-radius: 50%;">
+  <p>Nome Completo: {{ nome }}</p>
+  <p>CPF: {{ cpf }}</p>
+  <p>Data de nascimento: {{ data_nasc }}</p>
+  <p>Escolaridade: {{ escolaridade }}</p>
+  <p>Moradia: {{ moradia }}</p>
+  <p>Pai: {{ nome_pai }}</p>
+  <p>Mãe: {{nome_mae}}</p>
   </div>
 </template>
 
