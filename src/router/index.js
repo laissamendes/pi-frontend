@@ -4,7 +4,6 @@ import PessoaView from '@/views/PessoaView.vue'
 import RegistroView from '@/views/RegistroView.vue'
 import MoradiaView from '@/views/MoradiaView.vue'
 import AnimalView from '@/views/AnimalView.vue'
-import HomeView from '@/views/HomeView.vue';
 import InicioView from '@/views/InicioView.vue';
 
 
@@ -15,11 +14,6 @@ const router = createRouter({
       path: '/',
       component: LayoutFull,
       children: [
-        {
-          path: '',
-          name: 'Home',
-          component: HomeView,
-        },
         {
           path: '/Inicio',
           name: 'Inicio',
