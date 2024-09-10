@@ -105,7 +105,6 @@ form {
   max-width: 100%;
 }
 
-/* Estilo para input de imagem e preview */
 .image-container {
   display: flex;
   flex-direction: column;
@@ -195,22 +194,22 @@ form {
   cursor: pointer;
 }
 #input-submit {
-  border-radius: 25px; /* Bordas arredondadas */
+  border-radius: 25px; 
   height: 50px;
   width: 100%;
-  max-width: 300px; /* Define um valor máximo de largura para manter responsivo */
+  max-width: 300px; 
   background-color: #FEFAE0;
   border-style: none;
   font-size: 16px;
   cursor: pointer;
   display: block;
-  margin: 20px auto; /* Centraliza horizontalmente */
-  padding: 0 20px; /* Ajusta o padding interno */
+  margin: 20px auto; 
+  padding: 0 20px; 
   text-align: center;
 }
 
 #input-submit:hover {
-  background-color: #DAD7CD; /* Efeito de hover */
+  background-color: #DAD7CD; 
 }
 
 /* Estilo para telas médias e grandes */
