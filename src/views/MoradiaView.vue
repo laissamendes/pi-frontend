@@ -87,6 +87,7 @@ function registrarCasa() {
 .casas-cadastradas, .cadastro-moradias {
   width: 100%; /* Faz os elementos ocuparem toda a largura disponÃ­vel */
   margin-bottom: 1rem; /* Adiciona um espaÃ§o entre os elementos */
+  margin: 2rem;
 }
 
 .cadastro-moradias {
@@ -159,7 +160,7 @@ form input {
   }
 
   .casas-cadastradas {
-    width: 50%; /* Define a largura da lista de casas cadastradas */
+    width: 30%; /* Define a largura da lista de casas cadastradas */
     margin-bottom: 0; /* Remove o espaÃ§o inferior em telas maiores */
   }
 
