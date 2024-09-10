@@ -40,7 +40,7 @@
 </template>
 
 <style scoped>
-p{
+p {
     color: darkolivegreen;
     font-family: Inter;
     font-size: 25px;
@@ -117,5 +117,90 @@ i {
     align-items: center; /* Centraliza verticalmente */
     height: 80vh; /* Ocupa toda a altura da viewport */
     text-align: center; /* Centraliza o texto */
+}
+
+/* Media queries para telas grandes */
+@media (min-width: 1200px) {
+    .navigation {
+        grid-template-columns: repeat(2, 1fr); /* Duas colunas para centralizar os itens */
+        grid-template-rows: auto auto; /* Ajusta as linhas */
+        justify-content: center; /* Centraliza o conteúdo horizontalmente */
+        gap: 40px; /* Espaço entre os itens */
+    }
+
+    .header-item, .space-item {
+        grid-column: span 2; /* Ocupa duas colunas */
+    }
+
+    .nav-item {
+        width: 200px; /* Ajusta conforme necessário */
+        height: 150px; /* Ajusta conforme necessário */
+    }
+
+    i {
+        font-size: 80px; /* Ajusta o tamanho dos ícones */
+    }
+}
+
+/* Media queries para telas médias */
+@media (min-width: 768px) and (max-width: 1199px) {
+    .navigation {
+        grid-template-columns: repeat(2, 1fr); /* Duas colunas para telas médias */
+        grid-template-rows: auto auto auto auto; /* Ajusta as linhas */
+    }
+
+    .header-item, .space-item {
+        grid-column: span 2; /* Ocupa duas colunas */
+    }
+
+    .nav-item {
+        width: 220px; /* Ajusta conforme necessário */
+        height: 180px; /* Ajusta conforme necessário */
+    }
+
+    i {
+        font-size: 60px; /* Ajusta o tamanho dos ícones */
+    }
+}
+
+/* Media queries para telas pequenas */
+@media (max-width: 767px) {
+    .navigation {
+        grid-template-columns: 1fr; /* Uma coluna em telas pequenas */
+        grid-template-rows: auto auto auto auto auto auto; /* Ajusta as linhas */
+        gap: 15px;
+    }
+
+    .header-item, .space-item {
+        grid-column: span 1; /* Ocupa uma coluna */
+    }
+
+    .nav-item {
+        width: 100%; /* Ajusta a largura para 100% */
+        height: auto; /* Ajusta a altura automaticamente */
+    }
+
+    .nav-link {
+        font-size: 18px; /* Ajusta o tamanho da fonte */
+    }
+
+    i {
+        font-size: 40px; /* Ajusta o tamanho dos ícones */
+    }
+}
+
+@media (max-width: 480px) {
+    p {
+        font-size: 20px; /* Ajusta o tamanho do texto */
+    }
+
+    .nav-link {
+        font-size: 16px; /* Ajusta o tamanho da fonte */
+        padding: 8px; /* Ajusta o padding */
+    }
+
+    i {
+        font-size: 30px; /* Ajusta o tamanho dos ícones */
+    }
 }
 </style>
