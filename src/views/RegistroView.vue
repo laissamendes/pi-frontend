@@ -114,30 +114,57 @@ form {
 }
 
 .file-input {
-  border-radius: 50px;
+  
   height: 50px;
   width: 100%;
-  background-color: #FEFAE0;
+  margin-top: 10px;
   border-style: none;
+  
+  box-sizing: border-box;
+  max-width: 100%;
+  background-color: #FEFAE0; 
+  border: none; 
+  color: rgb(82, 82, 82);
   font-size: 16px;
-  cursor: pointer;
+  padding: 10px;
+  border-radius: 25px;
+  cursor: pointer; 
+}
+.file-input::-webkit-file-upload-button {
+  visibility: hidden; 
+}
+
+.file-input::before {
+  content: 'Escolher Arquivo'; 
+  display: inline-block;
+  background: #FEFAE0;
+  color: rgb(82, 82, 82);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-size: 16px;
+  cursor: pointer; 
+}
+
+.file-input:hover::before {
+  background-color: #DAD7CD; 
 }
 
 .image-preview {
   border-radius: 50%;
-  width: 150px; /* Ajuste conforme necessário */
-  height: 150px; /* Ajuste conforme necessário */
+  width: 150px;
+  height: 150px;
   object-fit: cover;
   margin-top: 10px;
 }
 
-/* Inputs de data */
+
 .date-inputs {
   display: inline-flex;
   justify-content: center;
   align-items: center;
   gap: 5px;
-  width: 100%; /* Centraliza os inputs de data */
+  width: 100%; 
   margin-top: 10px;
 }
 
@@ -167,6 +194,24 @@ form {
   font-size: 16px;
   cursor: pointer;
 }
+#input-submit {
+  border-radius: 25px; /* Bordas arredondadas */
+  height: 50px;
+  width: 100%;
+  max-width: 300px; /* Define um valor máximo de largura para manter responsivo */
+  background-color: #FEFAE0;
+  border-style: none;
+  font-size: 16px;
+  cursor: pointer;
+  display: block;
+  margin: 20px auto; /* Centraliza horizontalmente */
+  padding: 0 20px; /* Ajusta o padding interno */
+  text-align: center;
+}
+
+#input-submit:hover {
+  background-color: #DAD7CD; /* Efeito de hover */
+}
 
 /* Estilo para telas médias e grandes */
 @media (min-width: 768px) {
@@ -181,16 +226,23 @@ form {
   }
 
   #input-infos, #cpf {
-    width: 90%; /* Ajusta a largura dos inputs de forma mais responsiva */
+    width: 90%; 
   }
 
   #day, #month, #year {
-    width: 100px; /* Inputs de data maiores */
+    width: 100px;
   }
 
   .date-inputs {
-    justify-content: center; /* Centraliza os campos de data */
+    justify-content: center; 
   }
+  .input-submit{
+    border-radius: 20px;
+  }
+  #input-submit {
+    max-width: 400px; /* Alarga o botão em telas maiores */
+  }
+
 
   /* Borda para telas médias */
   form {
@@ -214,7 +266,7 @@ form {
   }
 
   #input-infos, #cpf {
-    width: 100%; /* Largura total para inputs em telas pequenas */
+    width: 100%; 
   }
 
   .date-inputs {
@@ -225,7 +277,7 @@ form {
   form {
     display: block;
     border: 2px solid #FEFAE0;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra mais leve para telas pequenas */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
   }
 }
 </style>

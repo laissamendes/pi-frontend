@@ -1,7 +1,6 @@
 
 <script setup>
   import MediumHeader from '@/components/templates/medium/MediumHeader.vue';
-  import MediumFooter from '@/components/templates/medium/MediumFooter.vue';
 
 </script>
 
@@ -15,9 +14,7 @@
       medium
       <router-view />
     </main>
-    <footer>
-      <medium-footer/>
-    </footer>
+    
   </div>
 </template>
 
