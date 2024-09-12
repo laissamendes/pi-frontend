@@ -90,6 +90,10 @@ function registrarCasa() {
   margin: 2rem;
 }
 
+.casas-cadastradas > ul{
+  list-style-type: none;
+}
+
 .cadastro-moradias {
 background-color: #606c3894;
 border-radius: 20px;
