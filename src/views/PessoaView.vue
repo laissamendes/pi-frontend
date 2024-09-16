@@ -16,7 +16,9 @@
   </div>
 
   <div class="infos">
-    <img src="" alt="" class="profile-image" />
+  <div class="profile-image"></div>
+  <!--colocamos para saber como ficara pronto -->
+    <img src="" alt=""  />
     <p>Nome Completo: {{ nome }}</p>
     <p>CPF: {{ cpf }}</p>
     <p>Data de nascimento: {{ data_nasc }}</p>
@@ -28,23 +30,21 @@
 </template>
 
 <style scoped>
-/* Estilos para o container de inputs */
 .inputs {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
   padding: 1rem;
-  justify-content: center; /* Centraliza o conteúdo no container */
+  justify-content: center;
 }
 
-/* Estilos para os inputs individuais */
+
 .input-nome,
 .input-cpf {
   display: flex;
   flex-direction: column;
 }
 
-/* Estilos para os inputs */
 #input-infos {
   margin: 0.5rem 0;
   padding: 0.5rem;
@@ -54,7 +54,6 @@
   border-radius: 20px;
 }
 
-/* Estilos para o botão de submit */
 #input-submit {
   color: #fefae0;
   background-color: #606c38;
@@ -69,24 +68,31 @@
   background-color: #4a532b;
 }
 
-/* Estilos para o label */
+
 label {
   color: #6a2c0f;
 }
 
-/* Estilos para a área de informações */
+
 .infos {
   padding: 1rem;
-  text-align: center;
+  text-align: left;
+  color: #6a2c0f;
+  display: flex;
+  align-items: baseline;
 }
 
-.profile-image {
+.infos > .profile-image {
+  width: 20rem;
+  height: 20rem;
+  background-color: #4a532b;
   border-radius: 50%;
-  max-width: 100px; /* Ajuste conforme necessário */
-  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Media Queries para dispositivos pequenos */
+
 @media (max-width: 599px) {
   .inputs {
     flex-direction: column;
@@ -104,7 +110,6 @@ label {
   }
 }
 
-/* Media Queries para dispositivos médios */
 @media (min-width: 600px) and (max-width: 1023px) {
   .inputs {
     flex-direction: column;
@@ -123,33 +128,32 @@ label {
   }
 }
 
-/* Media Queries para dispositivos grandes */
 @media (min-width: 1024px) {
   .inputs {
     flex-direction: row;
     align-items: center;
-    justify-content: space-between; /* Espaça os inputs e botão de submit */
+    justify-content: space-between; 
   }
 
   .input-nome,
   .input-cpf {
     flex: 1;
-    margin-right: 1rem; /* Adiciona margem à direita dos inputs */
+    margin-right: 1rem; 
   }
 
   .input-cpf {
-    margin-right: 0; /* Remove a margem direita do último input */
+    margin-right: 0; 
   }
 
   #input-submit {
-    width: auto; /* Ajusta a largura do botão de submit para se adaptar ao layout */
-    height: 2.5rem; /* Define uma altura igual à dos inputs */
-    margin: 0; /* Remove a margem do botão */
-    align-self: stretch; /* Faz o botão se esticar para a altura dos inputs */
+    width: auto; 
+    height: 2.5rem;
+    margin: 0; 
+    align-self: stretch; 
   }
 
   #input-infos {
-    height: 2.5rem; /* Ajusta a altura dos inputs para se igualar ao botão de submit */
+    height: 2.5rem; 
   }
 }
 </style>
