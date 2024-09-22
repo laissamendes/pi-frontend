@@ -1,15 +1,9 @@
 <script setup>
 import { ref } from 'vue';
-
-// Estado para controlar a exibição da div
 const isProntuarioOpen = ref(false);
-
-// Função para abrir a div
 const openProntuario = () => {
   isProntuarioOpen.value = true;
 };
-
-// Função para fechar a div
 const closeProntuario = () => {
   isProntuarioOpen.value = false;
 };
@@ -38,7 +32,7 @@ const closeProntuario = () => {
                 <div>
                     <p>Nome:</p>
                     <p>Espécie:</p>
-                    <button class="btn-prontuario">Visualizar Prontuário</button>
+                    <button class="btn-prontuario" @click="openProntuario">Visualizar Prontuário</button>
                 </div>  
             </div>
         </div>
@@ -236,5 +230,42 @@ h1{
     border-color: rgb(96, 108, 56);
     color: #FFFFFF;
     font-size: large;    
+}
+@media (max-width: 1200px) {
+.container{
+    display: grid;
+    grid-template-columns: 1fr;
+}
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .caramelo {
+    width: 150px;
+    height: 150px;
+  }
+
+  .prontuario-modal {
+    width: 80%;
+    top: 10%;
+  }
+}
+}@media (max-width: 480px) {
+  .container {
+    padding: 10px;
+  }
+  .caramelo {
+    width: 100px;
+    height: 100px;
+  }
+  .prontuario-modal {
+    width: 90%;
+    padding: 10px;
+  }
+  button {
+    width: 100%;
+  }
 }
 </style>
