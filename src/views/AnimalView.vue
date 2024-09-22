@@ -1,10 +1,25 @@
-<script setup></script>
+<script setup>
+import { ref } from 'vue';
+
+// Estado para controlar a exibição da div
+const isProntuarioOpen = ref(false);
+
+// Função para abrir a div
+const openProntuario = () => {
+  isProntuarioOpen.value = true;
+};
+
+// Função para fechar a div
+const closeProntuario = () => {
+  isProntuarioOpen.value = false;
+};
+</script>
 
 <template>
 <div class="container">
     <div class="animais-cadastrados">
         <span id="icon" class="mdi mdi-paw"></span>
-        <h2>Animais Cadastrados ></h2>
+        <h2>Animais Cadastrados </h2>
         <div class="container-registros">
             <div class="registros">
                 <div>
@@ -13,7 +28,7 @@
                 <div>
                     <p>Nome:</p>
                     <p>Espécie:</p>
-                    <button class="btn-prontuario">Visualizar Prontuário</button>
+                    <button class="btn-prontuario" @click="openProntuario">Visualizar Prontuário</button>
                 </div>  
             </div>
             <div class="registros">
@@ -30,25 +45,30 @@
     </div>
     <div class="cadastrar-animais">
         <span id="icon" class="mdi mdi-attachment-plus"></span>
-        <h2>Cadastrar Animais +</h2>
+        <h2>Cadastrar Animais </h2>
         <div class="container-cadastro">
             <div class="cadastrar">
                 <div class="container-foto">
                     <span id="icon2" class="mdi mdi-dog-side"></span>
-                    <p>Foto do Animal</p>
-                    <button class="btn-imagem">Selecionar Arquivo</button>
+                    <div class="botao-foto">
+                        <p>Foto do Animal</p>
+                        <button class="btn-imagem">Selecionar Arquivo</button>
+                    </div>
                 </div>
-                <div>
-                    <input placeholder="Nome:" type="text">
-                </div>
-                <div>
-                    <input placeholder="Espécie:" type="text">
-                </div>
+                <input placeholder="Nome:" type="text">
+                <input placeholder="Espécie:" type="text">
                 <button class="btn-cadastrar">Cadastrar</button>
             </div>
         </div>
     </div>
 </div>    
+
+<div v-if="isProntuarioOpen" class="prontuario-overlay">
+    <div class="prontuario-modal">
+        <button class="btn-fechar" @click="closeProntuario">X</button>
+        <h1>Prontuário Animal</h1>
+    </div>
+</div>
 </template>
 
 <style scoped>
@@ -65,6 +85,7 @@
     width: 171px;
     height: 179px;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.255);
+    margin: 20px;
 }
 .btn-prontuario{
     background-color:   rgba(40, 54, 24, 1);
@@ -87,6 +108,7 @@
     width: 240px;
     height: 42px;
     color: #FFFFFF;
+    margin: 20px;
 }
 .btn-cadastrar{
     background-color:   rgba(40, 54, 24, 1);
@@ -95,7 +117,7 @@
     font-size: 16px;
     border: 5px solid rgba(96, 108, 56, 1); 
     cursor: pointer;
-    width: 295px;
+    width: 530px;
     height: 50px;
     color: #FFFFFF;
 }
@@ -125,6 +147,7 @@ button:hover {
     padding: 15px;
     margin: 30px;
     align-items: center;
+    
 }
 
 p {
@@ -176,8 +199,42 @@ input{
 }
 .container-foto{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr;
+    grid-template-columns: 2fr 3fr;
+}
+.botao-foto{
+    align-items: center; 
+    text-align: center;
+    margin-top: 40px;
+}
+.prontuario-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
     align-items: center;
+    z-index: 1000;
+}
+.prontuario-modal {
+    width: 1350px;
+    height: 700px;
+    background-color: rgb(96, 108, 56);
+    padding: 20px;
+    border-radius: 40px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    max-width: 90%;
+    position: relative;
+}
+h1{
+    text-align: center;
+    color: #FFFFFF;
+}
+.btn-fechar{
+    background-color: rgb(96, 108, 56);
+    border-color: rgb(96, 108, 56);
+    color: #FFFFFF;
+    font-size: large;    
 }
 </style>
