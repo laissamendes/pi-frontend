@@ -231,12 +231,8 @@ h1{
     color: #FFFFFF;
     font-size: large;    
 }
+
 @media (max-width: 1200px) {
-.container{
-    display: grid;
-    grid-template-columns: 1fr;
-}
-@media (max-width: 768px) {
   .container {
     flex-direction: column;
     align-items: center;
@@ -252,7 +248,8 @@ h1{
     top: 10%;
   }
 }
-}@media (max-width: 480px) {
+
+@media (max-width: 480px) {
   .container {
     padding: 10px;
   }
