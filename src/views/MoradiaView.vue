@@ -155,22 +155,21 @@ form input {
   align-self: flex-start;
 }
 
-/* EstilizaÃ§ÃĢo para telas mÃĐdias e grandes */
 @media (min-width: 768px) {
   .container {
-    flex-direction: row; /* Muda a direÃ§ÃĢo do layout para linha */
-    justify-content: flex-start; /* Alinha os itens no inÃ­cio */
-    align-items: flex-start; /* Alinha os itens no topo */
+    flex-direction: row; 
+    justify-content: flex-start; 
+    align-items: flex-start; 
   }
 
   .casas-cadastradas {
-    width: 30%; /* Define a largura da lista de casas cadastradas */
-    margin-bottom: 0; /* Remove o espaÃ§o inferior em telas maiores */
+    width: 30%; 
+    margin-bottom: 0; 
   }
 
   .cadastro-moradias {
-    width: 50%; /* Define a largura do formulÃĄrio de cadastro */
-    margin-bottom: 0; /* Remove o espaÃ§o inferior em telas maiores */
+    width: 50%; 
+    margin-bottom: 0;
   }
 }
 

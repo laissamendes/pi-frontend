@@ -15,10 +15,11 @@
     <input type="submit" name="submit" id="input-submit" />
   </div>
 
-  <div class="infos">
-  <div class="profile-image"></div>
+  <div class="infos-pessoais">
+  <div class="profile-image">
+    <img src="" alt=""  /></div>
   <!--colocamos para saber como ficara pronto -->
-    <img src="" alt=""  />
+  <div class="dados">
     <p>Nome Completo: {{ nome }} Fulaninho</p>
     <p>CPF: {{ cpf }} 111.111.111-11</p>
     <p>Data de nascimento: {{ data_nasc }} 01/01/2001</p>
@@ -26,6 +27,7 @@
     <p>Moradia: {{ moradia }} casinha</p>
     <p>Pai: {{ nome_pai }} Fulano</p>
     <p>Mãe: {{ nome_mae }} Fulana</p>
+  </div>
   </div>
 </template>
 
@@ -74,13 +76,14 @@ label {
 }
 
 
-.infos {
+.infos-pessoais {
   padding: 1rem;
   color: #6a2c0f;
- 
+  display: flex;
+  justify-content: center;  
 }
 
-.infos > .profile-image {
+.infos-pessoais > .profile-image {
   width: 20rem;
   height: 20rem;
   background-color: #4a532b;
