@@ -19,13 +19,13 @@
   <div class="profile-image"></div>
   <!--colocamos para saber como ficara pronto -->
     <img src="" alt=""  />
-    <p>Nome Completo: {{ nome }}</p>
-    <p>CPF: {{ cpf }}</p>
-    <p>Data de nascimento: {{ data_nasc }}</p>
-    <p>Escolaridade: {{ escolaridade }}</p>
-    <p>Moradia: {{ moradia }}</p>
-    <p>Pai: {{ nome_pai }}</p>
-    <p>Mãe: {{ nome_mae }}</p>
+    <p>Nome Completo: {{ nome }} Fulaninho</p>
+    <p>CPF: {{ cpf }} 111.111.111-11</p>
+    <p>Data de nascimento: {{ data_nasc }} 01/01/2001</p>
+    <p>Escolaridade: {{ escolaridade }} Médio Completo</p>
+    <p>Moradia: {{ moradia }} casinha</p>
+    <p>Pai: {{ nome_pai }} Fulano</p>
+    <p>Mãe: {{ nome_mae }} Fulana</p>
   </div>
 </template>
 
@@ -76,10 +76,8 @@ label {
 
 .infos {
   padding: 1rem;
-  text-align: left;
   color: #6a2c0f;
-  display: flex;
-  align-items: baseline;
+ 
 }
 
 .infos > .profile-image {
