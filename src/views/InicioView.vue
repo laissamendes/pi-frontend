@@ -19,7 +19,6 @@
         </router-link>
       </div>
       <div class="space-item"></div>
-      <!-- Espaço entre os pares -->
       <div class="header-item">
         <p>Outros</p>
       </div>

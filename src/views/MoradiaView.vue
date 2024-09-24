@@ -5,28 +5,20 @@ const moradias = ref([
   { id: 1, familia: 'do Dudu', comodos: 3, moradores: 4 },
   { id: 2, familia: 'da Laiza', comodos: 2, moradores: 3 }
 ]);
-
-
 const novaCasa = ref({
   familia: '',
   comodos: 0,
   moradores: 0
 });
-
-
 function editarMoradia(id) {
   console.log(`Editando moradia com ID: ${id}`);
 }
-
-
 function registrarCasa() {
   const novaMoradia = {
     id: moradias.value.length + 1,
     ...novaCasa.value
   };
   moradias.value.push(novaMoradia);
-
- 
   novaCasa.value = {
     familia: '',
     comodos: 0,
@@ -78,15 +70,15 @@ function registrarCasa() {
 
 .container {
   display: flex;
-  flex-direction: column; /* Por padrÃĢo, os elementos sÃĢo empilhados verticalmente */
+  flex-direction: column;
   padding: 2rem;
-  height: 100vh; /* Ocupa toda a altura da tela */
-  justify-content: center; /* Centraliza o conteÃšdo verticalmente */
+  height: 100vh; 
+  justify-content: center;
 }
 
 .casas-cadastradas, .cadastro-moradias {
-  width: 100%; /* Faz os elementos ocuparem toda a largura disponÃ­vel */
-  margin-bottom: 1rem; /* Adiciona um espaÃ§o entre os elementos */
+  width: 100%;
+  margin-bottom: 1rem;
   margin: 2rem;
 }
 
@@ -139,7 +131,7 @@ form div {
 form label {
   margin-bottom: 0.5rem;
   font-weight: bold;
-  display: block; /* Faz o label ocupar toda a largura disponÃ­vel */
+  display: block;
 }
 
 form input {
@@ -147,8 +139,8 @@ form input {
   border-style: none;
   border-radius: 10px;
   background-color: #fefae0;
-  width: 100%; /* Faz os inputs ocuparem toda a largura disponÃ­vel do seu contÃŠiner pai */
-  max-width: 400px; /* Define uma largura mÃĄxima para os inputs */
+  width: 100%;
+  max-width: 400px; 
 }
 
 .cadastro-moradias button {
@@ -172,11 +164,9 @@ form input {
     margin-bottom: 0;
   }
 }
-
-/* EstilizaÃ§ÃĢo para telas grandes */
 @media (min-width: 992px) {
   .container {
-    max-width: 1200px; /* Define a largura mÃĄxima do container */
-    margin: 0 auto; /* Centraliza o container horizontalmente */
+    max-width: 1200px; 
+    margin: 0 auto; 
   }
 }</style>

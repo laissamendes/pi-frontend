@@ -152,8 +152,6 @@ form {
   object-fit: cover;
   margin-top: 10px;
 }
-
-
 .date-inputs {
   display: inline-flex;
   justify-content: center;

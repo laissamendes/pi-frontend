@@ -1,24 +1,25 @@
 <script setup></script>
 
 <template>
-  <div class="inputs">
-    <div class="input-nome">
-      <label for="nome">Nome Completo:</label>
-      <input type="text" name="nome" id="input-infos" />
-    </div>
-
-    <div class="input-cpf">
-      <label for="cpf">CPF:</label>
-      <input type="text" name="cpf" id="input-infos" />
-    </div>
-
-    <input type="submit" name="submit" id="input-submit" />
+<div class="inputs">
+  <div class="input-nome">
+    <label for="nome">Nome Completo:</label>
+    <input type="text" name="nome" id="input-infos" />
   </div>
 
+  <div class="input-cpf">
+    <label for="cpf">CPF:</label>
+    <input type="text" name="cpf" id="input-infos" />
+  </div>
+
+  <input type="submit" name="submit" id="input-submit" />
+</div>
+
+<div class="container-dados">
   <div class="infos-pessoais">
   <div class="profile-image">
     <img src="" alt=""  /></div>
-  <!--colocamos para saber como ficara pronto -->
+  </div>
   <div class="dados">
     <p>Nome Completo: {{ nome }} Fulaninho</p>
     <p>CPF: {{ cpf }} 111.111.111-11</p>
@@ -28,10 +29,16 @@
     <p>Pai: {{ nome_pai }} Fulano</p>
     <p>Mãe: {{ nome_mae }} Fulana</p>
   </div>
-  </div>
+</div>
+  
 </template>
 
 <style scoped>
+.dados{
+  margin: 60px;
+  color: #6a2c0f;
+  font-size: x-large;
+}
 .inputs {
   display: flex;
   flex-wrap: wrap;
@@ -92,7 +99,10 @@ label {
   align-items: center;
   justify-content: center;
 }
-
+.container-dados{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
 
 @media (max-width: 599px) {
   .inputs {
@@ -157,4 +167,5 @@ label {
     height: 2.5rem; 
   }
 }
+
 </style>
