@@ -1,0 +1,12 @@
+name: raizes-digitais
+services:
+  app:
+    image: Edukons/pi-backend.git:latest
+    environment:
+      - MODE=DEVELOPMENT #  possible values are: DEVELOPMENT, PRODUCTION, MIGRATE
+      - SECRET_KEY=pxhb7yj&w2$x5f@$5o29!-!6tx=yog_s7f9=rh--k!$w4w1sn!
+      - DEBUG=True #  possible values are: True, False
+      - PASSAGE_APP_ID=u8pOvs2X7SIGkaGz2YXEMcUt
+      - PASSAGE_API_KEY=ABe40BxKKg.XNwZ3twPHntCcb7h0gVv8JUF1OVZB6So4DvWZ4JwQLPdtjn6aOAAO4OAnO3Ubbts
+    ports:
+      - 8000:8000

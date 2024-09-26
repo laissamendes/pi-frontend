@@ -5,6 +5,7 @@ import RegistroView from '@/views/RegistroView.vue'
 import MoradiaView from '@/views/MoradiaView.vue'
 import AnimalView from '@/views/AnimalView.vue'
 import InicioView from '@/views/InicioView.vue'
+import LoginView from '@/views/LoginView.vue'
 
 import { useTemplateStore } from '@/stores/template';
 
@@ -52,6 +53,14 @@ const router = createRouter({
           component: InicioView,
           meta: {
             title: "Inicio"
+          }
+        }, 
+        {
+          path: '/Login',
+          name: 'Login',
+          component: LoginView,
+          meta: {
+            title: "Login"
           }
         }
       ],
