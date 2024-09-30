@@ -29,6 +29,7 @@ onBeforeRouteUpdate(() => {
       <router-link to="/Moradia"> <i class="mdi mdi-home" /> Moradia </router-link>
       <router-link to="/Pessoa"> <i class="mdi mdi-account" /> Pessoa </router-link>
       <router-link to="/Registro"> <i class="mdi mdi-file-document" /> Registro </router-link>
+      <router-link to="/Login">Login</router-link>
     </div>
   </header>
   </template>
