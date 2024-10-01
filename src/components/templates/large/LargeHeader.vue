@@ -29,7 +29,7 @@ onBeforeRouteUpdate(() => {
       <router-link to="/Moradia"> <i class="mdi mdi-home" /> Moradia </router-link>
       <router-link to="/Pessoa"> <i class="mdi mdi-account" /> Pessoa </router-link>
       <router-link to="/Registro"> <i class="mdi mdi-file-document" /> Registro </router-link>
-      <router-link to="/Login">Login</router-link>
+      <router-link to="/Login"><i class="mdi mdi-key" /> Login</router-link>
     </div>
   </header>
   </template>
@@ -44,6 +44,7 @@ onBeforeRouteUpdate(() => {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   position: relative;
   height: 125px;
+  position: sticky;
 }
 
 .logo-title {

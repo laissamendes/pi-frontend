@@ -38,11 +38,11 @@ function registrarCasa() {
         </div>
         <div>
           <label>Quantas pessoas moram na sua casa:</label>
-          <input v-model.number="novaCasa.moradores" type="number" required />
+          <input v-model.number="novaCasa.moradores" type="number" required :min="0" />
         </div>
         <div>
           <label>Quantos comodos tem na sua casa:</label>
-          <input v-model.number="novaCasa.comodos" type="number" required />
+          <input v-model.number="novaCasa.comodos" type="number" required :min="1"/>
         </div>
         <button type="submit">Registrar</button>
       </form>

@@ -44,7 +44,7 @@ const closeProntuario = () => {
             <div class="cadastrar">
                 <div class="container-foto">
                     <span id="icon2" class="mdi mdi-dog-side"></span>
-                    <div class="botao-foto">
+                    <div class="btn-foto">
                         <p>Foto do Animal</p>
                         <button class="btn-imagem">Selecionar Arquivo</button>
                     </div>
@@ -98,41 +98,41 @@ const closeProntuario = () => {
     margin: 20px;
 }
 .btn-prontuario{
-    background-color:   rgba(40, 54, 24, 1);
+    background-color: #283618;
+    color: #fefae0;    
     border-radius: 20px;
     padding: 10px 20px;
-    font-size: 16px;
-    border: 5px solid rgba(96, 108, 56, 1); 
+    font-size: 20px;
     cursor: pointer;
-    width: 305px;
-    height: 52px;
-    color: #FEFAE0;
+    width: 250px;
+    height: 50px;
+    border-style: none;
 }
 .btn-imagem{
-    background-color:   rgba(40, 54, 24, 1);
+    background-color: #283618;
+    color: #fefae0; 
     border-radius: 20px;
-    padding: 10px 20px;
     font-size: 12px;
-    border: 5px solid rgba(96, 108, 56, 1); 
     cursor: pointer;
     width: 240px;
     height: 42px;
-    color: #FEFAE0;
     margin: 20px;
+    border-style: none;
+    font-size: 20px;
 }
 .btn-cadastrar{
-    background-color:   rgba(40, 54, 24, 1);
+    background-color: #283618;
+    color: #fefae0; 
     border-radius: 20px;
-    padding: 10px 20px;
-    font-size: 16px;
-    border: 5px solid rgba(96, 108, 56, 1); 
+    font-size: 20px;
     cursor: pointer;
-    width: 530px;
+    width: 250px;
     height: 50px;
-    color: #FEFAE0;
+    border-style: none;
+    
 }
 button:hover {
-    background-color: rgba(26, 29, 15, 0.589);
+    background-color: #374b21;
 }
 .registros{
     width: 600px;
@@ -184,7 +184,7 @@ h2{
 }
 #icon2{
     color: rgba(106, 44, 15, 1);
-    background-color: #FFFFFF;
+    background-color: #FEFAE0;
     border-radius: 50px;
     font-size: 120px;
     width: 200px;
@@ -211,10 +211,12 @@ input{
     display: grid;
     grid-template-columns: 2fr 3fr;
 }
-.botao-foto{
+.btn-foto{
     align-items: center; 
     text-align: center;
     margin-top: 40px;
+    border-style: none;
+
 }
 .prontuario-overlay {
     position: fixed;
@@ -245,7 +247,8 @@ h1{
     background-color: rgb(96, 108, 56);
     border-color: rgb(96, 108, 56);
     color: #FEFAE0;
-    font-size: large;    
+    font-size: large; 
+    border-style: none;  
 }
 .date-input {
   justify-content: center;

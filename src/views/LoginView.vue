@@ -8,4 +8,9 @@ import "@passageidentity/passage-elements/passage-auth";
   </div>
 </template>
 
-<style></style>
+<style>
+.authContainer {
+  margin-top: 50px;
+  /* background-color: red; */
+}
+</style>
