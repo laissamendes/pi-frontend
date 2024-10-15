@@ -46,7 +46,7 @@
          <option>Ensino Médio Completo</option>
          <option>Ensino Superior Incompleto</option>
          <option>Ensino Superior Completo</option>
-         <option>Outros</option>
+         <option>Outro</option>
 </select>
       </div>
       <input type="submit" name="submit" id="input-submit" />
