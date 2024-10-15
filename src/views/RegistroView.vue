@@ -1,6 +1,36 @@
 <script setup>
 import { ref } from 'vue';
 
+import { usePessoaStore } from '@/stores/pessoa';
+const pessoaStore = usePessoaStore()
+
+const escolaridade = [
+  {id: 1, description: "Nenhuma"},
+  {id: 2, description: "Fundamental Incompleto"},
+  {id: 3, description: "Fundamental Completo"},
+  {id: 4, description: "Ensino Médio Incompleto"},
+  {id: 5, description: "Ensino Médio Completo"},
+  {id: 6, description: "Ensino Superior Incompleto"},
+  {id: 7, description: "Ensino Superior Completo"},
+  {id: 8, description: "Outro"}
+]
+
+const novaPessoa = ref({
+  nome: '',
+  imagem: '',
+  dia_nascimento: '',
+  mes_nascimento: '',
+  ano_nascimento: '',
+  cpf: 0,
+  nome_pai:'',
+  nome_mae: '',
+  escolaridade: 0,
+});
+
+async function registrarPessoa() {
+  await pessoaStore.adicionarPessoa(novaPessoa.value)
+}
+
 const imageSrc = ref(null);
 
 function previewImage(event) {
@@ -16,7 +46,7 @@ function previewImage(event) {
 </script>
 
 <template>
-  <form class="form">
+  <form class="form" @submit.prevent="registrarPessoa">
     <h1 class="titulo">Registros</h1>
 
     <div class="inputsII">
@@ -28,27 +58,40 @@ function previewImage(event) {
 
     <div class="inputs">
       <div class="input-nome">
-        <input type="text" name="nome" id="input-infos" class="nome" placeholder="NOME COMPLETO" />
+        <input type="text" v-model="novaPessoa.nome" id="input-infos" class="nome" placeholder="NOME COMPLETO" />
       </div>
       <div>
         <p class="data">Data de Nascimento</p>
         <div class="date-inputs">
-          <input id="day" type="text" placeholder="DD" maxlength="2" />
+          <input id="day" type="text" v-model="novaPessoa.dia_nascimento" placeholder="DD" maxlength="2" />
           <span>/</span>
-          <input id="month" type="text" placeholder="MM" maxlength="2" />
+          <input id="month" type="text" v-model="novaPessoa.mes_nascimento" placeholder="MM" maxlength="2" />
           <span>/</span>
-          <input id="year" type="text" placeholder="AAAA" maxlength="4" />
+          <input id="year" type="text" v-model="novaPessoa.ano_nascimento" placeholder="AAAA" maxlength="4" />
         </div>
       </div>
       <div class="input-cpf">
-        <input type="text" name="cpf" id="cpf" v-cpf maxlength="14" placeholder="CPF" />
+        <input type="text" name="cpf" v-model="novaPessoa.cpf" id="cpf" v-cpf maxlength="14" placeholder="CPF" />
       </div>
 
       <div class="input-nome">
-        <input type="text" name="pai" id="input-infos" placeholder="PAI" />
+        <input type="text" name="pai" v-model="novaPessoa.nome_pai" id="input-infos" placeholder="PAI" />
       </div>
       <div class="input-nome">
-        <input type="text" name="mae" id="input-infos" placeholder="MÃE" />
+        <input type="text" name="mae" v-model="novaPessoa.nome_mae" id="input-infos" placeholder="MÃE" />
+      </div>
+      <div>
+        <select class="input-nome" v-model="novaPessoa.escolaridade">
+         <option disabled value="">Status escolaridade:</option>
+         <option>Nenhuma</option>
+         <option>Fundamental Incompleto</option>
+         <option>Fundamental Completo</option>
+         <option>Ensino Médio Incompleto</option>
+         <option>Ensino Médio Completo</option>
+         <option>Ensino Superior Incompleto</option>
+         <option>Ensino Superior Completo</option>
+         <option>Outro</option>
+</select>
       </div>
       <input type="submit" name="submit" id="input-submit" />
     </div>

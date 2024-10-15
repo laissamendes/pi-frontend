@@ -51,8 +51,6 @@ onMounted(() => {
           <p><strong>N. da casa:</strong> {{ moradia.numero_casa }}</p>
           <p><strong>Comodos:</strong> {{ moradia.numero_comodos }}</p>
           <p><strong>Descrição:</strong> {{ moradia.descricao }}</p>
-          <p><strong>Moradores:</strong> {{moradia.numero_moradores}}</p>
-          <p><strong>Familia:</strong> TODO: buscar familiar</p>
           <button @click="editarMoradia(moradia.id)">Editar</button>
         </li>
       </ul>

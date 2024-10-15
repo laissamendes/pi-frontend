@@ -1,6 +1,7 @@
 <script setup></script>
 
 <template>
+
 <div class="inputs">
   <div class="input-nome">
     <label for="nome">Nome Completo:</label>
@@ -34,11 +35,13 @@
 </template>
 
 <style scoped>
+
 .dados{
   margin: 60px;
   color: #6a2c0f;
   font-size: x-large;
 }
+
 .inputs {
   display: flex;
   flex-wrap: wrap;
@@ -46,7 +49,6 @@
   padding: 1rem;
   justify-content: center;
 }
-
 
 .input-nome,
 .input-cpf {
