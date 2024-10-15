@@ -1,4 +1,5 @@
-<script setup></script>
+<script setup>
+</script>
 
 <template>
   <form class="form">
@@ -34,6 +35,19 @@
       </div>
       <div class="input-nome">
         <input type="text" name="mae" id="input-infos" placeholder="MÃE" />
+      </div>
+      <div>
+        <select class="input-nome" v-model="StatusEscolaridade">
+         <option disabled value="">Status escolaridade:</option>
+         <option>Nenhuma</option>
+         <option>Fundamental Incompleto</option>
+         <option>Fundamental Completo</option>
+         <option>Ensino Médio Incompleto</option>
+         <option>Ensino Médio Completo</option>
+         <option>Ensino Superior Incompleto</option>
+         <option>Ensino Superior Completo</option>
+         <option>Outro</option>
+</select>
       </div>
       <input type="submit" name="submit" id="input-submit" />
     </div>
