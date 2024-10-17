@@ -1,46 +1,53 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, computed } from 'vue'
 
-import { usePessoaStore } from '@/stores/pessoa';
+import { usePessoaStore } from '@/stores/pessoa'
 const pessoaStore = usePessoaStore()
 
+const diaNasc = ref()
+const mesNasc = ref()
+const anoNasc = ref()
+
+// const dataNasc = computed(() => {
+//   console.log(diaNasc.value)
+//   return `${diaNasc.value}-${mesNasc.value}-${anoNasc.value}`
+// })
+
 const escolaridade = [
-  {id: 1, description: "Nenhuma"},
-  {id: 2, description: "Fundamental Incompleto"},
-  {id: 3, description: "Fundamental Completo"},
-  {id: 4, description: "Ensino Médio Incompleto"},
-  {id: 5, description: "Ensino Médio Completo"},
-  {id: 6, description: "Ensino Superior Incompleto"},
-  {id: 7, description: "Ensino Superior Completo"},
-  {id: 8, description: "Outro"}
+  { id: 1, description: 'Nenhuma' },
+  { id: 2, description: 'Fundamental Incompleto' },
+  { id: 3, description: 'Fundamental Completo' },
+  { id: 4, description: 'Ensino Médio Incompleto' },
+  { id: 5, description: 'Ensino Médio Completo' },
+  { id: 6, description: 'Ensino Superior Incompleto' },
+  { id: 7, description: 'Ensino Superior Completo' },
+  { id: 8, description: 'Outro' }
 ]
 
 const novaPessoa = ref({
   nome: '',
-  imagem: '',
-  dia_nascimento: '',
-  mes_nascimento: '',
-  ano_nascimento: '',
-  cpf: [],
-  nome_pai:'',
-  nome_mae: '',
-  escolaridade: 0,
-});
+  foto_pessoa: '',
+  data_nasc: "",
+  cpf: '',
+  status_escolaridade: null
+})
 
 async function registrarPessoa() {
+  novaPessoa.value.data_nasc = `${anoNasc.value}-${mesNasc.value}-${diaNasc.value}`
+  console.log(anoNasc.value)
   await pessoaStore.adicionarPessoa(novaPessoa.value)
 }
 
-const imageSrc = ref(null);
+const imageSrc = ref(null)
 
 function previewImage(event) {
-  const file = event.target.files[0];
+  const file = event.target.files[0]
   if (file) {
-    const reader = new FileReader();
+    const reader = new FileReader()
     reader.onload = (e) => {
-      imageSrc.value = e.target.result;
-    };
-    reader.readAsDataURL(file);
+      imageSrc.value = e.target.result
+    }
+    reader.readAsDataURL(file)
   }
 }
 </script>
@@ -58,49 +65,60 @@ function previewImage(event) {
 
     <div class="inputs">
       <div class="input-nome">
-        <input type="text" v-model="novaPessoa.nome" id="input-infos" class="nome" placeholder="NOME COMPLETO" />
+        <input
+          type="text"
+          v-model="novaPessoa.nome"
+          id="input-infos"
+          class="nome"
+          placeholder="NOME COMPLETO"
+        />
       </div>
       <div>
         <p class="data">Data de Nascimento</p>
         <div class="date-inputs">
-          <input id="day" type="text" v-model="novaPessoa.dia_nascimento" placeholder="DD" maxlength="2" />
+          <input id="day" type="text" v-model="diaNasc" placeholder="DD" maxlength="2" />
           <span>/</span>
-          <input id="month" type="text" v-model="novaPessoa.mes_nascimento" placeholder="MM" maxlength="2" />
+          <input id="month" type="text" v-model="mesNasc" placeholder="MM" maxlength="2" />
           <span>/</span>
-          <input id="year" type="text" v-model="novaPessoa.ano_nascimento" placeholder="AAAA" maxlength="4" />
+          <input id="year" type="text" v-model="anoNasc" placeholder="AAAA" maxlength="4" />
         </div>
       </div>
       <div class="input-cpf">
-        <input type="text" name="cpf" v-model="novaPessoa.cpf" id="cpf" v-cpf maxlength="14" placeholder="CPF" />
+        <input
+          type="text"
+          name="cpf"
+          v-model="novaPessoa.cpf"
+          id="cpf"
+          v-cpf
+          maxlength="14"
+          placeholder="CPF"
+        />
       </div>
-
+      <!-- 
       <div class="input-nome">
         <input type="text" name="pai" v-model="novaPessoa.nome_pai" id="input-infos" placeholder="PAI" />
       </div>
       <div class="input-nome">
         <input type="text" name="mae" v-model="novaPessoa.nome_mae" id="input-infos" placeholder="MÃE" />
-      </div>
+      </div> -->
       <div>
-        <select class="input-nome" v-model="novaPessoa.escolaridade">
-         <option disabled value="">Status escolaridade:</option>
-         <option>Nenhuma</option>
-         <option>Fundamental Incompleto</option>
-         <option>Fundamental Completo</option>
-         <option>Ensino Médio Incompleto</option>
-         <option>Ensino Médio Completo</option>
-         <option>Ensino Superior Incompleto</option>
-         <option>Ensino Superior Completo</option>
-         <option>Outro</option>
-</select>
+        <select class="input-nome" v-model="novaPessoa.status_escolaridade">
+          <option :value="esc.id" v-for="esc in escolaridade" :key="esc.id">{{ esc.description }}</option>
+        </select>
       </div>
-      <input type="submit" name="submit" id="input-submit" @click="registrarPessoa(novaPessoa.value)" />
+      <input
+        type="submit"
+        name="submit"
+        id="input-submit"
+        @click="registrarPessoa()"
+      />
     </div>
   </form>
 </template>
 
 <style scoped>
 form {
-  background-color: #606C38;
+  background-color: #606c38;
   opacity: 0.7;
   margin: 10px auto;
   padding: 20px;
@@ -112,14 +130,14 @@ form {
 
 .titulo {
   text-align: center;
-  color: #FEFAE0;
+  color: #fefae0;
   font-weight: bold;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   margin-top: 30px;
 }
 
 .data {
-  color: #FEFAE0;
+  color: #fefae0;
   font-weight: bold;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -134,11 +152,12 @@ form {
   margin-top: 20px;
 }
 
-#input-infos, #cpf {
+#input-infos,
+#cpf {
   border-radius: 50px;
   height: 50px;
   width: 100%;
-  background-color: #FEFAE0;
+  background-color: #fefae0;
   margin-top: 10px;
   border-style: none;
   font-size: 16px;
@@ -160,32 +179,32 @@ form {
   border-style: none;
   box-sizing: border-box;
   max-width: 100%;
-  background-color: #FEFAE0; 
-  border: none; 
+  background-color: #fefae0;
+  border: none;
   color: rgb(82, 82, 82);
   font-size: 16px;
   padding: 10px;
   border-radius: 25px;
-  cursor: pointer; 
+  cursor: pointer;
 }
 .file-input::-webkit-file-upload-button {
-  visibility: hidden; 
+  visibility: hidden;
 }
 
 .file-input::before {
-  content: 'Escolher Arquivo'; 
+  content: 'Escolher Arquivo';
   display: inline-block;
-  background: #FEFAE0;
+  background: #fefae0;
   color: rgb(82, 82, 82);
   border: none;
   padding: 10px 20px;
   border-radius: 25px;
   font-size: 16px;
-  cursor: pointer; 
+  cursor: pointer;
 }
 
 .file-input:hover::before {
-  background-color: #f7f1ca; 
+  background-color: #f7f1ca;
 }
 
 .image-preview {
@@ -200,23 +219,25 @@ form {
   justify-content: center;
   align-items: center;
   gap: 5px;
-  width: 100%; 
+  width: 100%;
   margin-top: 10px;
 }
 
-#day, #month, #year {
+#day,
+#month,
+#year {
   border-radius: 50px;
   height: 50px;
   width: 20%;
   max-width: 100px;
-  background-color: #FEFAE0;
+  background-color: #fefae0;
   text-align: center;
   border-style: none;
   font-size: 16px;
 }
 
 .date-inputs span {
-  color: #FEFAE0;
+  color: #fefae0;
   font-weight: bold;
 }
 
@@ -224,29 +245,29 @@ form {
   border-radius: 50px;
   height: 50px;
   width: 100%;
-  background-color: #FEFAE0;
+  background-color: #fefae0;
   border-style: none;
   padding-left: 20px;
   font-size: 16px;
   cursor: pointer;
 }
 #input-submit {
-  border-radius: 25px; 
+  border-radius: 25px;
   height: 50px;
   width: 100%;
-  max-width: 300px; 
-  background-color: #FEFAE0;
+  max-width: 300px;
+  background-color: #fefae0;
   border-style: none;
   font-size: 16px;
   cursor: pointer;
   display: block;
-  margin: 20px auto; 
-  padding: 0 20px; 
+  margin: 20px auto;
+  padding: 0 20px;
   text-align: center;
 }
 
 #input-submit:hover {
-  background-color: #f7f1ca; 
+  background-color: #f7f1ca;
 }
 
 @media (min-width: 768px) {
@@ -260,27 +281,29 @@ form {
     margin-bottom: 30px;
   }
 
-  #input-infos, #cpf {
-    width: 90%; 
+  #input-infos,
+  #cpf {
+    width: 90%;
   }
 
-  #day, #month, #year {
+  #day,
+  #month,
+  #year {
     width: 100px;
   }
 
   .date-inputs {
-    justify-content: center; 
+    justify-content: center;
   }
-  .input-submit{
+  .input-submit {
     border-radius: 20px;
   }
   #input-submit {
-    max-width: 400px; 
+    max-width: 400px;
   }
 
-
   form {
-    border: 3px solid #FEFAE0;
+    border: 3px solid #fefae0;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   }
 }
@@ -295,12 +318,13 @@ form {
   .inputsII {
     display: flex;
     flex-direction: column;
-    align-items: center; 
+    align-items: center;
     margin-bottom: 20px;
   }
 
-  #input-infos, #cpf {
-    width: 100%; 
+  #input-infos,
+  #cpf {
+    width: 100%;
   }
 
   .date-inputs {
@@ -310,8 +334,8 @@ form {
 
   form {
     display: block;
-    border: 2px solid #FEFAE0;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
+    border: 2px solid #fefae0;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   }
 }
 </style>
