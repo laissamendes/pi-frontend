@@ -21,7 +21,7 @@ const novaPessoa = ref({
   dia_nascimento: '',
   mes_nascimento: '',
   ano_nascimento: '',
-  cpf: 0,
+  cpf: [],
   nome_pai:'',
   nome_mae: '',
   escolaridade: 0,
@@ -93,7 +93,7 @@ function previewImage(event) {
          <option>Outro</option>
 </select>
       </div>
-      <input type="submit" name="submit" id="input-submit" />
+      <input type="submit" name="submit" id="input-submit" @click="registrarPessoa(novaPessoa.value)" />
     </div>
   </form>
 </template>

@@ -1,4 +1,13 @@
-<script setup></script>
+<script setup>
+import { ref } from 'vue';
+
+import { usePessoaStore } from '@/stores/pessoa';
+const pessoaStore = usePessoaStore()
+
+async function buscarPessoa() {
+  await pessoaStore.buscarTodasAsPessoas(novaPessoa.value)
+}
+</script>
 
 <template>
 
