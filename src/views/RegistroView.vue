@@ -24,18 +24,18 @@ const escolaridade = [
   { id: 8, description: 'Outro' }
 ]
 
-const novaPessoa = ref({
+const pessoa = ref({
   nome: '',
   foto_pessoa: '',
-  data_nasc: "",
+  data_nasc: '',
   cpf: '',
   status_escolaridade: null
 })
 
 async function registrarPessoa() {
-  novaPessoa.value.data_nasc = `${anoNasc.value}-${mesNasc.value}-${diaNasc.value}`
+  pessoa.value.data_nasc = `${anoNasc.value}-${mesNasc.value}-${diaNasc.value}`
   console.log(anoNasc.value)
-  await pessoaStore.adicionarPessoa(novaPessoa.value)
+  await pessoaStore.adicionarPessoa(pessoa.value)
 }
 
 const imageSrc = ref(null)
@@ -53,7 +53,7 @@ function previewImage(event) {
 </script>
 
 <template>
-  <form class="form" @submit.prevent="registrarPessoa">
+  <form class="form">
     <h1 class="titulo">Registros</h1>
 
     <div class="inputsII">
@@ -67,7 +67,7 @@ function previewImage(event) {
       <div class="input-nome">
         <input
           type="text"
-          v-model="novaPessoa.nome"
+          v-model="pessoa.nome"
           id="input-infos"
           class="nome"
           placeholder="NOME COMPLETO"
@@ -87,7 +87,7 @@ function previewImage(event) {
         <input
           type="text"
           name="cpf"
-          v-model="novaPessoa.cpf"
+          v-model="pessoa.cpf"
           id="cpf"
           v-cpf
           maxlength="14"
@@ -102,7 +102,7 @@ function previewImage(event) {
         <input type="text" name="mae" v-model="novaPessoa.nome_mae" id="input-infos" placeholder="MÃE" />
       </div> -->
       <div>
-        <select class="input-nome" v-model="novaPessoa.status_escolaridade">
+        <select class="input-nome" v-model="pessoa.status_escolaridade">
           <option :value="esc.id" v-for="esc in escolaridade" :key="esc.id">{{ esc.description }}</option>
         </select>
       </div>
