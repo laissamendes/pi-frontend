@@ -5,8 +5,15 @@ import { usePessoaStore } from '@/stores/pessoa';
 const pessoaStore = usePessoaStore()
 
 async function buscarPessoa() {
-  await pessoaStore.buscarTodasAsPessoas(novaPessoa.value)
+  await pessoaStore.buscarTodasAsPessoas(pessoa.value)
 }
+
+const pessoa = ref({
+  nome: '',
+  cpf: '',
+  data_nasc: '',
+  status_escolaridade: []
+})
 </script>
 
 <template>
@@ -22,7 +29,7 @@ async function buscarPessoa() {
     <input type="text" name="cpf" id="input-infos" />
   </div>
 
-  <input type="submit" name="submit" id="input-submit" />
+  <input type="submit" name="submit" id="input-submit" @click="buscarPessoa()" />
 </div>
 
 <div class="container-dados">
@@ -31,13 +38,10 @@ async function buscarPessoa() {
     <img src="" alt=""  /></div>
   </div>
   <div class="dados">
-    <p>Nome Completo: {{ nome }} Fulaninho</p>
-    <p>CPF: {{ cpf }} 111.111.111-11</p>
-    <p>Data de nascimento: {{ data_nasc }} 01/01/2001</p>
-    <p>Escolaridade: {{ escolaridade }} Médio Completo</p>
-    <p>Moradia: {{ moradia }} casinha</p>
-    <p>Pai: {{ nome_pai }} Fulano</p>
-    <p>Mãe: {{ nome_mae }} Fulana</p>
+    <p>Nome Completo: {{ pessoa.nome.value }}</p>
+    <p>CPF: {{ pessoa.cpf.value }}</p>
+    <p>Data de nascimento: {{ pessoa.data_nasc.value }}</p>
+    <p>Escolaridade: {{ pessoa.status_escolaridade.value }}</p>
   </div>
 </div>
   

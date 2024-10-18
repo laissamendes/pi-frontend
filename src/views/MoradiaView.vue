@@ -10,10 +10,6 @@ const novaCasa = ref({
   numero_comodos: 0
 });
 
-function editarMoradia(id) {
-  console.log(`Editando moradia com ID: ${id}`);
-}
-
 async function registrarCasa() {
   await moradiaStore.adicionarMoradia(novaCasa.value)
 }
@@ -51,7 +47,6 @@ onMounted(() => {
           <p><strong>N. da casa:</strong> {{ moradia.numero_casa }}</p>
           <p><strong>Comodos:</strong> {{ moradia.numero_comodos }}</p>
           <p><strong>Descrição:</strong> {{ moradia.descricao }}</p>
-          <button @click="editarMoradia(moradia.id)">Editar</button>
         </li>
       </ul>
     </div>

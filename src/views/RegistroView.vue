@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed } from 'vue'
+import { ref } from 'vue'
 
 import { usePessoaStore } from '@/stores/pessoa'
 const pessoaStore = usePessoaStore()
