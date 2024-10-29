@@ -232,7 +232,7 @@ input{
 .prontuario-modal {
     width: 1350px;
     height: 700px;
-    background-color: rgb(96, 108, 56);
+    background-color: rgb(112, 122, 80);
     padding: 20px;
     border-radius: 40px;
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
@@ -316,7 +316,7 @@ span{
   button {
     width: 100%;
   }
-  #day, #month, #year,.input-prontuario,.input-left,.input-right,.container-prontuario{
+  #day, #month, #year,.input-prontuario,.input-left,.input-right,.container-prontuario, .container{
     grid-template-columns: 1fr;
     align-items: center;
     max-width: 100%;
