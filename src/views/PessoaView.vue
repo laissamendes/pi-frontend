@@ -4,29 +4,24 @@ import { ref } from 'vue';
 import { usePessoaStore } from '@/stores/pessoa';
 const pessoaStore = usePessoaStore()
 
-async function buscarPessoa() {
-  await pessoaStore.buscarTodasAsPessoas(pessoa.value)
-}
-
 const pessoa = ref({
   nome: '',
   cpf: '',
   data_nasc: '',
   status_escolaridade: []
 })
+
+async function buscarPessoa() {
+  await pessoaStore.buscarTodasAsPessoas({ search: pessoa.value.nome }); 
+}
 </script>
 
 <template>
 
 <div class="inputs">
   <div class="input-nome">
-    <label for="nome">Nome Completo:</label>
-    <input type="text" name="nome" id="input-infos" />
-  </div>
-
-  <div class="input-cpf">
-    <label for="cpf">CPF:</label>
-    <input type="text" name="cpf" id="input-infos" />
+    <label for="nome">Nome Completo ou CPF:</label>
+    <input type="text" name="nome" id="input-infos" v-model="pessoa.nome" />
   </div>
 
   <input type="submit" name="submit" id="input-submit" @click="buscarPessoa()" />
