@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 
-axios.defaults.baseURL = 'http://191.52.55.57:19003/api/'
+axios.defaults.baseURL = 'http://191.52.55.15:19003/api/'
 
 axios.interceptors.request.use(
     (config) => {
