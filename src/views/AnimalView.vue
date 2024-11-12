@@ -338,36 +338,6 @@ span{
     height: 300px;
   }
 }
-
-
-@media (max-width: 480px) {
-  .container {
-    padding: 10px;
-  }
-  .caramelo {
-    width: 120px;
-    height: 120px;
-  }
-  .btn-prontuario,.btn-cadastrar,.btn-imagem {
-    width: 100%;
-    font-size: 16px;
-  }
-  .prontuario-modal {
-    padding: 10px;
-  }
-  .container-prontuario,.container-foto {
-    grid-template-columns: 1fr;
-  }
-
-  .input-left,.input-right {
-    width: 100%;
-    margin: 5px 0;
-  }
-  
-  .desc-prontuario {
-    height: 200px;
-  }
-}
 @media (max-width: 320px) {
 .container {
     padding: 5px;
