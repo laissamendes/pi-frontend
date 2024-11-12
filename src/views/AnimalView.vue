@@ -285,42 +285,110 @@ span{
     margin: 30px;
 }
 @media (max-width: 1200px) {
-  .container {
+.container {
     flex-direction: column;
     align-items: center;
-  }
-
-  .caramelo {
+}
+.caramelo {
     width: 150px;
     height: 150px;
-  }
-
-  .prontuario-modal {
+}
+.prontuario-modal {
     width: 80%;
     top: 10%;
+}
+.btn-fechar {
+    font-size: 16px;
+    padding: 5px;
+}
+}
+@media (max-width: 768px) {
+.container {
+    flex-direction: column;
+    padding: 15px;
+}
+.cadastrar,.registros {
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+}
+.prontuario-modal {
+    width: 95%;
+    height: auto;
+    padding: 15px;
+}
+.btn-fechar {
+    font-size: 14px;
+    padding: 5px;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+.input-prontuario {
+    width: 100%;
+}
+#day, #month, #year {
+    width: 30%;
+    margin: 5px;
+}
+.date-input {
+    justify-content: space-between;
+}
+.desc-prontuario {
+    height: 300px;
   }
 }
+
 
 @media (max-width: 480px) {
   .container {
     padding: 10px;
   }
   .caramelo {
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    height: 120px;
+  }
+  .btn-prontuario,.btn-cadastrar,.btn-imagem {
+    width: 100%;
+    font-size: 16px;
   }
   .prontuario-modal {
-    width: 90%;
     padding: 10px;
   }
-  button {
-    width: 100%;
-  }
-  #day, #month, #year,.input-prontuario,.input-left,.input-right,.container-prontuario, .container{
+  .container-prontuario,.container-foto {
     grid-template-columns: 1fr;
-    align-items: center;
-    max-width: 100%;
+  }
+
+  .input-left,.input-right {
+    width: 100%;
+    margin: 5px 0;
+  }
+  
+  .desc-prontuario {
+    height: 200px;
   }
 }
-
+@media (max-width: 320px) {
+.container {
+    padding: 5px;
+}
+.prontuario-modal {
+    padding: 5px;
+}
+.btn-fechar {
+    font-size: 12px;
+    padding: 4px;
+}
+.caramelo {
+    width: 100px;
+    height: 100px;
+}
+.btn-prontuario,.btn-cadastrar,.btn-imagem {
+    width: 100%;
+    font-size: 14px;
+}
+.input-prontuario, .desc-prontuario {
+    width: 100%;
+  }
+}
 </style>
