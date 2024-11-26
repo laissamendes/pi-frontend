@@ -19,24 +19,25 @@ async function buscarPessoa() {
 <template>
 
 <div class="inputs">
+<form @submit.prevent="enviar = buscarPessoa()"></form>
   <div class="input-nome">
     <label for="nome">Nome Completo ou CPF:</label>
     <input type="text" name="nome" id="input-infos" v-model="pessoa.nome" />
   </div>
 
-  <input type="submit" name="submit" id="input-submit" @click="buscarPessoa()" />
+  <input type="submit" name="submit" id="input-submit" />
 </div>
 
-<div class="container-dados">
+<div class="container-dados" v-if="enviar">
   <div class="infos-pessoais">
   <div class="profile-image">
-    <img src="" alt=""  /></div>
+    <img src="" alt=""></div>
   </div>
   <div class="dados">
-    <p>Nome Completo: {{ pessoa.nome.value }}</p>
-    <p>CPF: {{ pessoa.cpf.value }}</p>
-    <p>Data de nascimento: {{ pessoa.data_nasc.value }}</p>
-    <p>Escolaridade: {{ pessoa.status_escolaridade.value }}</p>
+    <p>Nome Completo: {{ pessoa.nome }}</p>
+    <p>CPF: {{ pessoa.cpf }}</p>
+    <p>Data de nascimento: {{ pessoa.data_nasc }}</p>
+    <p>Escolaridade: {{ pessoa.status_escolaridade }}</p>
   </div>
 </div>
   
