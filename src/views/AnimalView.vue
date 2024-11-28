@@ -82,7 +82,6 @@ const closeProntuario = () => {
 </template>
 
 <style scoped>
-
 .container {
   display: flex;
   justify-content: space-between;
@@ -90,178 +89,196 @@ const closeProntuario = () => {
   padding: 20px;
 }
 
-.caramelo{
-    border-radius: 50px;
-    width: 171px;
-    height: 179px;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.255);
-    margin: 20px;
+.caramelo {
+  border-radius: 50px;
+  width: 171px;
+  height: 179px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.255);
+  margin: 20px;
 }
-.btn-prontuario{
-    background-color: #283618;
-    color: #fefae0;    
-    border-radius: 20px;
-    padding: 10px 20px;
-    font-size: 20px;
-    cursor: pointer;
-    width: 250px;
-    height: 50px;
-    border-style: none;
+
+.btn-prontuario {
+  background-color: #283618;
+  color: #fefae0;    
+  border-radius: 20px;
+  padding: 10px 20px;
+  font-size: 20px;
+  cursor: pointer;
+  width: 250px;
+  height: 50px;
+  border-style: none;
 }
-.btn-imagem{
-    background-color: #283618;
-    color: #fefae0; 
-    border-radius: 20px;
-    font-size: 12px;
-    cursor: pointer;
-    width: 240px;
-    height: 42px;
-    margin: 20px;
-    border-style: none;
-    font-size: 20px;
+
+.btn-imagem {
+  background-color: #283618;
+  color: #fefae0; 
+  border-radius: 20px;
+  cursor: pointer;
+  width: 240px;
+  height: 42px;
+  margin: 20px;
+  font-size: 20px;
+  border-style: none;
 }
-.btn-cadastrar{
-    background-color: #283618;
-    color: #fefae0; 
-    border-radius: 20px;
-    font-size: 20px;
-    cursor: pointer;
-    width: 250px;
-    height: 50px;
-    border-style: none;
-    
+
+.btn-cadastrar {
+  background-color: #283618;
+  color: #fefae0; 
+  border-radius: 20px;
+  font-size: 20px;
+  cursor: pointer;
+  width: 250px;
+  height: 50px;
+  border-style: none;
 }
+
 button:hover {
-    background-color: #374b21;
+  background-color: #374b21;
 }
-.registros{
-    width: 600px;
-    height: 250px;
-    background-color: rgba(96, 108, 56, 0.74);
-    border-radius: 30px;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    flex-direction: row;
-    padding: 15px;
-    margin: 30px;
+
+.registros {
+  width: 600px;
+  height: 250px;
+  background-color: rgba(96, 108, 56, 0.74);
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-direction: row;
+  padding: 15px;
+  margin: 30px;
 }
-.cadastrar{
-    width: 568px;
-    height: 600px;
-    background-color: rgba(96, 108, 56, 0.74);
-    border-radius: 30px;
-    display: grid;
-    grid-template-rows:5fr 2fr 2fr 3fr;
-    gap: 20px;
-    padding: 15px;
-    margin: 30px;
-    align-items: center;
-    
+
+.cadastrar {
+  width: 568px;
+  height: 600px;
+  background-color: rgba(96, 108, 56, 0.74);
+  border-radius: 30px;
+  display: grid;
+  grid-template-rows: 5fr 2fr 2fr 3fr;
+  gap: 20px;
+  padding: 15px;
+  margin: 30px;
+  align-items: center;
 }
 
 p {
-    color: #FEFAE0;
-    font-size: x-large;
-    font-weight: bold;
+  color: #FEFAE0;
+  font-size: x-large;
+  font-weight: bold;
 }
-.container-registros, .container-cadastro{
-    display: flex;
-    flex-direction: column;
-    gap: 20px;      
-}
-h2{
-    color: rgba(96, 108, 56, 1);
-    font-weight: bold;
-}
-#icon{
-    color: rgba(106, 44, 15, 1);
-    font-size: xx-large;
-    border: 3px solid rgba(96, 108, 56, 1); 
-    border-radius: 7px;
-    width: 65px;
-    text-align: center;
-}
-#icon2{
-    color: rgba(106, 44, 15, 1);
-    background-color: #FEFAE0;
-    border-radius: 50px;
-    font-size: 120px;
-    width: 200px;
-    text-align: center;
-}
-.animais-cadastrados, .cadastrar-animais{
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-}
-input{
-    background-color: rgba(254, 250, 224, 1);
-    color: rgba(0, 0, 0, 0.50);
-    width: 540px;
-    height: 50px;
-    border: #FEFAE0;
-    border-radius: 50px;
-    font-size: large;
-}
-.container-foto{
-    display: grid;
-    grid-template-columns: 2fr 3fr;
-}
-.btn-foto{
-    align-items: center; 
-    text-align: center;
-    margin-top: 40px;
-    border-style: none;
 
+.container-registros, .container-cadastro {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;      
 }
+
+h2 {
+  color: rgba(96, 108, 56, 1);
+  font-weight: bold;
+}
+
+#icon {
+  color: rgba(106, 44, 15, 1);
+  font-size: xx-large;
+  border: 3px solid rgba(96, 108, 56, 1); 
+  border-radius: 7px;
+  width: 65px;
+  text-align: center;
+}
+
+#icon2 {
+  color: rgba(106, 44, 15, 1);
+  background-color: #FEFAE0;
+  border-radius: 50px;
+  font-size: 120px;
+  width: 200px;
+  text-align: center;
+}
+
+.animais-cadastrados, .cadastrar-animais {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+input {
+  background-color: rgba(254, 250, 224, 1);
+  color: rgba(0, 0, 0, 0.50);
+  width: 540px;
+  height: 50px;
+  border: #FEFAE0;
+  border-radius: 50px;
+  font-size: large;
+}
+
+.container-foto {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+}
+
+.btn-foto {
+  align-items: center; 
+  text-align: center;
+  margin-top: 40px;
+  border-style: none;
+}
+
 .prontuario-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
 }
+
 .prontuario-modal {
-    width: 1350px;
-    height: 700px;
-    background-color: rgb(112, 122, 80);
-    padding: 20px;
-    border-radius: 40px;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
-    max-width: 90%;
-    position: relative;
+  width: 1350px;
+  height: 700px;
+  background-color: rgb(112, 122, 80);
+  padding: 20px;
+  border-radius: 40px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+  max-width: 90%;
+  position: relative;
 }
-h1{
-    text-align: center;
-    color: #FEFAE0;
+
+h1 {
+  text-align: center;
+  color: #FEFAE0;
 }
-.btn-fechar{
-    background-color: rgb(96, 108, 56);
-    border-color: rgb(96, 108, 56);
-    color: #FEFAE0;
-    font-size: large; 
-    border-style: none;  
+
+.btn-fechar {
+  background-color: rgb(96, 108, 56);
+  border-color: rgb(96, 108, 56);
+  color: #FEFAE0;
+  font-size: large; 
+  border-style: none;  
 }
+
 .date-input {
   justify-content: center;
   align-items: center;
 }
-span{
-    color: #FEFAE0;
+
+span {
+  color: #FEFAE0;
 }
-.container-prontuario{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    margin: 10px;
+
+.container-prontuario {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 10px;
 }
+
 #day, #month, #year {
   border-radius: 50px;
   height: 50px;
@@ -272,93 +289,65 @@ span{
   border-style: none;
   margin: 30px;
 }
-.input-left{
-    margin: 30px;
+
+.input-left, .input-right {
+  margin: 30px;
 }
-.input-right{
-    margin: 30px;
+
+.desc-prontuario {
+  height: 400px;
 }
-.desc-prontuario{
-    height: 400px;
+
+.input-prontuario {
+  margin: 30px;
 }
-.input-prontuario{
-    margin: 30px;
-}
-@media (max-width: 1200px) {
-.container {
-    flex-direction: column;
-    align-items: center;
-}
-.caramelo {
-    width: 150px;
-    height: 150px;
-}
-.prontuario-modal {
-    width: 80%;
-    top: 10%;
-}
-.btn-fechar {
-    font-size: 16px;
-    padding: 5px;
-}
-}
+
+/* Ajustes para telas médias */
 @media (max-width: 768px) {
-.container {
+  .container {
     flex-direction: column;
     padding: 15px;
-}
-.cadastrar,.registros {
+  }
+  .cadastrar, .registros {
     width: 100%;
     margin: 10px 0;
     padding: 10px;
-}
-.prontuario-modal {
+  }
+  .prontuario-modal {
     width: 95%;
     height: auto;
     padding: 15px;
-}
-.btn-fechar {
+  }
+  .btn-fechar {
     font-size: 14px;
     padding: 5px;
     position: absolute;
     top: 5px;
     right: 5px;
-}
-.input-prontuario {
+  }
+  input {
     width: 100%;
-}
-#day, #month, #year {
-    width: 30%;
-    margin: 5px;
-}
-.date-input {
-    justify-content: space-between;
-}
-.desc-prontuario {
+  }
+  .desc-prontuario {
     height: 300px;
   }
 }
-@media (max-width: 320px) {
-.container {
+
+/* Ajustes para telas pequenas */
+@media (max-width: 480px) {
+  .container {
     padding: 5px;
-}
-.prontuario-modal {
-    padding: 5px;
-}
-.btn-fechar {
-    font-size: 12px;
-    padding: 4px;
-}
-.caramelo {
-    width: 100px;
-    height: 100px;
-}
-.btn-prontuario,.btn-cadastrar,.btn-imagem {
+  }
+  .btn-prontuario, .btn-cadastrar, .btn-imagem {
     width: 100%;
     font-size: 14px;
-}
-.input-prontuario, .desc-prontuario {
-    width: 100%;
+  }
+  .prontuario-modal {
+    padding: 5px;
+  }
+  .caramelo {
+    width: 120px;
+    height: 120px;
   }
 }
 </style>
