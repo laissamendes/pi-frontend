@@ -2,7 +2,7 @@ import axios from 'axios'
 export default class AnimalService {
     async buscarTodosOsAnimais() {
         try {
-            const { data } = await axios.get('/animal/');
+            const { data } = await axios.get('/animais/');
             return data;
         } catch (error) {
             console.error('Erro ao buscar animais:', error);
@@ -11,6 +11,6 @@ export default class AnimalService {
     }
 
     async adicionarAnimal(animal) {
-        await axios.post('/animal/', animal)
+        await axios.post('/animais/', animal)
     }
 }
