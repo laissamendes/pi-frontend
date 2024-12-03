@@ -38,19 +38,7 @@ onMounted(() => {
                                 <div class="caramelo">{{ animal.fotoAnimal }}</div>
                                 <p>Nome: {{ animal.nome }}</p>
                                 <p>Espécie: {{ animal.especie }}</p>
-                                <button Class="btn-prontuario" @click="openprontuario()">Visualizar Prontuário</button>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="registros">
-                    <div>
-                        <ul>
-                            <li v-for="animal in Animalstore.animais" :key="animal.id" class="card">
-                                <div class="caramelo">{{ animal.fotoAnimal }}</div>
-                                <p>Nome: {{ animal.nome }}</p>
-                                <p>Espécie: {{ animal.especie }}</p>
-                                <button Class="btn-prontuario" @click="openprontuario()">Visualizar Prontuário</button>
+                                <button Class="btn-prontuario" @click="openProntuario()">Visualizar Prontuário</button>
                             </li>
                         </ul>
                     </div>
