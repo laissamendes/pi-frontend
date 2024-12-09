@@ -1,14 +1,14 @@
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted } from 'vue'
 
-import { useMoradiaStore } from '@/stores/moradia';
+import { useMoradiaStore } from '@/stores/moradia'
 const moradiaStore = useMoradiaStore()
 
 const novaCasa = ref({
   descricao: '',
   numero_casa: 0,
   numero_comodos: 0
-});
+})
 
 async function registrarCasa() {
   await moradiaStore.adicionarMoradia(novaCasa.value)
@@ -17,7 +17,6 @@ async function registrarCasa() {
 onMounted(() => {
   moradiaStore.buscarTodasAsMoradias()
 })
-
 </script>
 
 <template>
@@ -35,7 +34,7 @@ onMounted(() => {
         </div>
         <div>
           <label>Quantos comodos tem na sua casa:</label>
-          <input v-model.number="novaCasa.numero_comodos" type="number" required :min="1"/>
+          <input v-model.number="novaCasa.numero_comodos" type="number" required :min="1" />
         </div>
         <button type="submit">Registrar</button>
       </form>
@@ -59,32 +58,28 @@ onMounted(() => {
   padding: 0;
   box-sizing: border-box;
 }
-
 .container {
   display: flex;
   flex-direction: column;
   padding: 2rem;
-  height: 100vh; 
+  height: 100vh;
   justify-content: center;
 }
-
-.casas-cadastradas, .cadastro-moradias {
+.casas-cadastradas,
+.cadastro-moradias {
   width: 100%;
   margin-bottom: 1rem;
   margin: 2rem;
 }
-
-.casas-cadastradas > ul{
+.casas-cadastradas > ul {
   list-style-type: none;
 }
-
 .cadastro-moradias {
-background-color: #606c3894;
-border-radius: 20px;
-padding: 15px;
-color: #fefae0;
+  background-color: #606c3894;
+  border-radius: 20px;
+  padding: 15px;
+  color: #fefae0;
 }
-
 .card {
   background-color: #fefae0;
   border: 2px solid #283618;
@@ -93,11 +88,9 @@ color: #fefae0;
   margin-bottom: 1rem;
   color: #283618;
 }
-
 .card p {
   margin: 0.5rem 0;
 }
-
 button {
   background-color: #283618;
   color: #fefae0;
@@ -106,59 +99,69 @@ button {
   border-radius: 5px;
   cursor: pointer;
 }
-
 button:hover {
   background-color: #374b21;
 }
-
 form {
   display: flex;
   flex-direction: column;
 }
-
 form div {
   margin-bottom: 1rem;
 }
-
 form label {
   margin-bottom: 0.5rem;
   font-weight: bold;
   display: block;
 }
-
 form input {
   padding: 0.5rem;
   border-style: none;
   border-radius: 10px;
   background-color: #fefae0;
   width: 100%;
-  max-width: 400px; 
+  max-width: 400px;
 }
-
 .cadastro-moradias button {
   align-self: flex-start;
 }
-
 @media (min-width: 768px) {
   .container {
-    flex-direction: row; 
-    justify-content: flex-start; 
-    align-items: flex-start; 
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
   }
-
   .casas-cadastradas {
-    width: 30%; 
-    margin-bottom: 0; 
+    width: 30%;
+    margin-bottom: 0;
   }
-
   .cadastro-moradias {
-    width: 50%; 
+    width: 50%;
     margin-bottom: 0;
   }
 }
-@media (min-width: 992px) {
+@media (min-width: 246px) and (max-width: 756px) {
   .container {
-    max-width: 1200px; 
-    margin: 0 auto; 
+    max-width: 1200px;
+    margin: 0 auto;
   }
-}</style>
+  .cadastro-moradias {
+    margin: 0px;
+  }
+  @media screen and (max-width: 900px) {
+    .form {
+      justify-content: center;
+      margin-left: 0%;
+    }
+    .container {
+      justify-content: center;
+    }
+  }
+  @media screen and (max-width: 1400px) {
+    .form {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+  }
+}
+</style>
