@@ -12,40 +12,41 @@ const pessoa = ref({
 })
 
 async function buscarPessoa() {
-  await pessoaStore.buscarTodasAsPessoas({ search: pessoa.value.nome }); 
+  await pessoaStore.buscarTodasAsPessoas({ search: pessoa.value.nome });
 }
 </script>
 
 <template>
 
-<div class="inputs">
-<form @submit.prevent="enviar = buscarPessoa()"></form>
-  <div class="input-nome">
-    <label for="nome">Nome Completo ou CPF:</label>
-    <input type="text" name="nome" id="input-infos" v-model="pessoa.nome" />
+    <form @submit.prevent="enviar = buscarPessoa">
+      <div class="inputs">
+      <div class="input-nome">
+        <label for="nome">Nome Completo ou CPF:</label>
+        <input type="text" name="nome" id="input-infos" v-model="pessoa.nome" />
+      </div>
+      <button type="submit" name="submit" id="input-submit">Pesquisar</button>
+  </div>
+  </form>
+
+
+  <div class="container-dados" v-if="enviar">
+    <div class="infos-pessoais">
+      <div class="profile-image">
+        <img src="" alt="">
+      </div>
+    </div>
+    <div class="dados">
+      <p>Nome Completo: {{ pessoa.nome }}</p>
+      <p>CPF: {{ pessoa.cpf }}</p>
+      <p>Data de nascimento: {{ pessoa.data_nasc }}</p>
+      <p>Escolaridade: {{ pessoa.status_escolaridade }}</p>
+    </div>
   </div>
 
-  <input type="submit" name="submit" id="input-submit" @click="buscarPessoa()" />
-</div>
-
-<div class="container-dados" v-if="enviar">
-  <div class="infos-pessoais">
-  <div class="profile-image">
-    <img src="" alt=""></div>
-  </div>
-  <div class="dados">
-    <p>Nome Completo: {{ pessoa.nome }}</p>
-    <p>CPF: {{ pessoa.cpf }}</p>
-    <p>Data de nascimento: {{ pessoa.data_nasc }}</p>
-    <p>Escolaridade: {{ pessoa.status_escolaridade }}</p>
-  </div>
-</div>
-  
 </template>
 
 <style scoped>
-
-.dados{
+.dados {
   margin: 60px;
   color: #6a2c0f;
   font-size: x-large;
@@ -98,10 +99,10 @@ label {
   padding: 1rem;
   color: #6a2c0f;
   display: flex;
-  justify-content: center;  
+  justify-content: center;
 }
 
-.infos-pessoais > .profile-image {
+.infos-pessoais>.profile-image {
   width: 20rem;
   height: 20rem;
   background-color: #4a532b;
@@ -110,7 +111,8 @@ label {
   align-items: center;
   justify-content: center;
 }
-.container-dados{
+
+.container-dados {
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
@@ -154,29 +156,28 @@ label {
   .inputs {
     flex-direction: row;
     align-items: center;
-    justify-content: space-between; 
+    justify-content: space-between;
   }
 
   .input-nome,
   .input-cpf {
     flex: 1;
-    margin-right: 1rem; 
+    margin-right: 1rem;
   }
 
   .input-cpf {
-    margin-right: 0; 
+    margin-right: 0;
   }
 
   #input-submit {
-    width: auto; 
+    width: auto;
     height: 2.5rem;
-    margin: 0; 
-    align-self: stretch; 
+    margin: 0;
+    align-self: stretch;
   }
 
   #input-infos {
-    height: 2.5rem; 
+    height: 2.5rem;
   }
 }
-
 </style>
