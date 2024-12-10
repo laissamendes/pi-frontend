@@ -338,4 +338,31 @@ form {
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   }
 }
+#headerMenu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  z-index: 1000; 
+  width: 200px;
+  background-color: #fefae0;
+  color: #606c38;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 15px 5px 10px #919c704f;
+  display: none;
+}
+@media (max-width: 768px) {
+  #headerMenu {
+    z-index: 1000; 
+  }
+}
+@media (max-width: 1024px) {
+  #headerMenu {
+    z-index: 1000; 
+  }
+}
+form {
+  position: relative; 
+  z-index: -1; 
+}
 </style>
