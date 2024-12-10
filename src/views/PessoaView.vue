@@ -25,7 +25,7 @@ async function buscarPessoa() {
     <input type="text" name="nome" id="input-infos" v-model="pessoa.nome" />
   </div>
 
-  <input type="submit" name="submit" id="input-submit" />
+  <input type="submit" name="submit" id="input-submit" @click="buscarPessoa()" />
 </div>
 
 <div class="container-dados" v-if="enviar">

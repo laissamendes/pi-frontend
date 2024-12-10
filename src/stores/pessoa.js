@@ -13,6 +13,7 @@ export const usePessoaStore = defineStore('pessoa', () => {
     }
 
     async function adicionarPessoa(pessoa) {
+        console.log('aqui..')
         await pessoaService.adicionarPessoa(pessoa)
         await pessoaService.buscarTodasAsPessoas()
     }

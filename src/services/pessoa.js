@@ -2,7 +2,7 @@ import axios from 'axios'
 export default class PessoaService {
     async buscarTodasAsPessoas() {
         try {
-            const { data } = await axios.get('/pessoas/?search={$pessoa}');
+            const { data } = await axios.get('/Pessoas/?search=${pessoa}');
             return data;
         } catch (error) {
             console.error('Erro ao buscar pessoas:', error);
@@ -13,7 +13,7 @@ export default class PessoaService {
     async adicionarPessoa(pessoa) {
         try {
             console.log(pessoa);
-            await axios.post('/pessoas/', pessoa);
+            await axios.post('/Pessoas/', pessoa);
         } catch (error) {
             console.error('Erro ao adicionar pessoa:', error);
             throw error; 

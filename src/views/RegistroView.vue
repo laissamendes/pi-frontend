@@ -8,11 +8,6 @@ const diaNasc = ref()
 const mesNasc = ref()
 const anoNasc = ref()
 
-// const dataNasc = computed(() => {
-//   console.log(diaNasc.value)
-//   return `${diaNasc.value}-${mesNasc.value}-${anoNasc.value}`
-// })
-
 const escolaridade = [
   { id: 1, description: 'Nenhuma' },
   { id: 2, description: 'Fundamental Incompleto' },
@@ -53,7 +48,7 @@ function previewImage(event) {
 </script>
 
 <template>
-  <form class="form">
+  <form class="form" @submit.prevent="registrarPessoa">
     <h1 class="titulo">Registros</h1>
 
     <div class="inputsII">
@@ -89,29 +84,20 @@ function previewImage(event) {
           name="cpf"
           v-model="pessoa.cpf"
           id="cpf"
-          v-cpf
           maxlength="14"
           placeholder="CPF"
         />
       </div>
-      <!-- 
-      <div class="input-nome">
-        <input type="text" name="pai" v-model="novaPessoa.nome_pai" id="input-infos" placeholder="PAI" />
-      </div>
-      <div class="input-nome">
-        <input type="text" name="mae" v-model="novaPessoa.nome_mae" id="input-infos" placeholder="MÃE" />
-      </div> -->
       <div>
         <select class="input-nome" v-model="pessoa.status_escolaridade">
           <option :value="esc.id" v-for="esc in escolaridade" :key="esc.id">{{ esc.description }}</option>
         </select>
       </div>
-      <input
-        type="submit"
+      <button type="submit"
         name="submit"
         id="input-submit"
-        @click="registrarPessoa()"
-      />
+        >Enviar</button>
+      
     </div>
   </form>
 </template>
