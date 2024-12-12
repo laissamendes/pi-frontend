@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue'
 
 import { usePessoaStore } from '@/stores/pessoa';
 const pessoaStore = usePessoaStore()
@@ -8,12 +8,16 @@ const pessoa = ref({
   nome: '',
   cpf: '',
   data_nasc: '',
-  status_escolaridade: []
+  status_escolaridade: null
 })
 
 async function buscarPessoa() {
   await pessoaStore.buscarTodasAsPessoas({ search: pessoa.value.nome });
 }
+
+onMounted(() => {
+  pessoaStore.buscarTodasAsPessoas()
+})
 </script>
 
 <template>
@@ -29,7 +33,7 @@ async function buscarPessoa() {
   </form>
 
 
-  <div class="container-dados" v-if="enviar">
+  <div class="container-dados">
     <div class="infos-pessoais">
       <div class="profile-image">
         <img src="" alt="">
