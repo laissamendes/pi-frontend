@@ -8,14 +8,6 @@ const animal = ref({
     especie: '',
     fotoAnimal: ''
 })
-const isProntuarioOpen = ref(false);
-
-const openProntuario = () => {
-    isProntuarioOpen.value = true;
-};
-const closeProntuario = () => {
-    isProntuarioOpen.value = false;
-};
 
 async function registrarAnimal() {
     await Animalstore.adicionarAnimal(animal.value)
@@ -23,6 +15,19 @@ async function registrarAnimal() {
 onMounted(() => {
     Animalstore.buscarTodosOsAnimais()
 })
+
+const imageSrc = ref(null)
+
+function previewImage(event) {
+    const file = event.target.files[0]
+    if (file) {
+        const reader = new FileReader()
+        reader.onload = (e) => {
+            imageSrc.value = e.target.result
+        }
+        reader.readAsDataURL(file)
+    }
+}
 </script>
 
 <template>
@@ -33,12 +38,11 @@ onMounted(() => {
             <div class="container-registros">
                 <div class="registros">
                     <div>
-                        <ul>
+                        <ul style="list-style-type: none;">
                             <li v-for="animal in Animalstore.animais" :key="animal.id" class="card">
                                 <div class="caramelo">{{ animal.fotoAnimal }}</div>
                                 <p>Nome: {{ animal.nome }}</p>
                                 <p>Espécie: {{ animal.especie }}</p>
-                                <button Class="btn-prontuario" @click="openProntuario()">Visualizar Prontuário</button>
                             </li>
                         </ul>
                     </div>
@@ -46,45 +50,25 @@ onMounted(() => {
             </div>
         </div>
         <div class="cadastrar-animais">
-            <span id="icon" class="mdi mdi-attachment-plus"></span>
-            <h2>Cadastrar Animais </h2>
-            <div class="container-cadastro">
-                <div class="cadastrar">
-                    <div class="container-foto">
-                        <span id="icon2" class="mdi mdi-dog-side"></span>
-                        <div class="btn-foto">
-                            <p>Foto do Animal</p>
-                            <button class="btn-imagem">Selecionar Arquivo</button>
+            <form @submit.prevent="registrarAnimal">
+                <span id="icon" class="mdi mdi-attachment-plus"></span>
+                <h2>Cadastrar Animais </h2>
+                <div class="container-cadastro">
+                    <div class="cadastrar">
+                        <div class="container-foto">
+                            <div class="btn-foto">
+                                <p>Foto do Animal</p>
+                                <img v-if="imageSrc" :src="imageSrc" alt="Preview da Imagem" class="image-preview"
+                                    id="icon2" />
+                                <input type="file" id="input-image" @change="previewImage" class="file-input" />
+                            </div>
                         </div>
-                    </div>
-                    <input v-model="animal.nome.value" placeholder="Nome:" type="text">
-                    <input v-model="animal.especie.value" placeholder="Espécie:" type="text">
-                    <button @submit.prevent="registrarAnimal()" class="btn-cadastrar">Cadastrar</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div v-if="isProntuarioOpen" class="prontuario-overlay">
-        <div class="prontuario-modal">
-            <button class="btn-fechar" @click="closeProntuario()">X</button>
-            <h1>Prontuário Animal</h1>
-            <div class="container-prontuario">
-                <div class="input-left">
-                    <input class="input-prontuario" placeholder="Nome" type="text">
-                    <input class="input-prontuario" placeholder="Espécie" type="text">
-                    <div class="date-input">
-                        <input id="day" type="text" placeholder="DD" maxlength="2" />
-                        <span>/</span>
-                        <input id="month" type="text" placeholder="MM" maxlength="2" />
-                        <span>/</span>
-                        <input id="year" type="text" placeholder="AAAA" maxlength="4" />
+                        <input v-model="animal.nome" placeholder="Nome:" type="text">
+                        <input v-model="animal.especie" placeholder="Espécie:" type="text">
+                        <button type="submit" class="btn-cadastrar">Cadastrar</button>
                     </div>
                 </div>
-                <div class="input-right">
-                    <input class="desc-prontuario" placeholder="Descrição" type="text">
-                </div>
-            </div>
+            </form>
         </div>
     </div>
 </template>
