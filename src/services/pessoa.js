@@ -12,6 +12,7 @@ export default class PessoaService {
     }
     
     async adicionarPessoa(pessoa) {
+    
         try {
             console.log(pessoa);
             await axios.post('/Pessoas/', pessoa);
