@@ -1,8 +1,16 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 import { useAnimalStore } from '@/stores/animal';
-const Animalstore = useAnimalStore()
+import { useUploaderStore } from '@/stores/uploader';
 
+const Animalstore = useAnimalStore()
+const uploaderStore = useUploaderStore();
+const file = ref(null);
+
+const uploadImage = (e) => {
+  file.value = e.target.files[0];
+  previewImage.value = URL.createObjectURL(e.target.files[0]);
+};
 const animal = ref({
     nome: '',
     especie: '',
@@ -11,6 +19,14 @@ const animal = ref({
 
 async function registrarAnimal() {
   await Animalstore.adicionarAnimal(animal.value)
+  fotoAnimal.attachment_key = await uploaderStore.uploadImage(file.value);
+  await useAnimalStore.createAnimal(fotoAnimal);
+  Object.assign(fotoAnimal, {
+    file: '',
+    description: '',
+    attachment_key: '',
+    uploaded_on: ''
+  });
 }
 
 onMounted(() => {
@@ -57,8 +73,8 @@ function previewImage(event) {
                         <div class="container-foto">
                             <div class="btn-foto">
                                 <p>Foto do Animal</p>
-                                <img v-if="imageSrc" :src="imageSrc" alt="Preview da Imagem" class="image-preview"
-                                    id="icon2" />
+                                <img v-if="imageSrc" :src="imageSrc" @change="uploadImage" alt="Preview da Imagem" 
+                                class="image-preview" id="icon2" />
                                 <input type="file" id="input-image" @change="previewImage" class="file-input" />
                             </div>
                         </div>
