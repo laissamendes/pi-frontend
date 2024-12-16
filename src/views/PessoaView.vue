@@ -1,42 +1,61 @@
 <script setup>
-import { ref, onMounted } from 'vue'
-
+import { ref, onMounted } from 'vue';
 import { usePessoaStore } from '@/stores/pessoa';
-const pessoaStore = usePessoaStore()
+
+const pessoaStore = usePessoaStore();
 
 const pessoa = ref({
   nome: '',
   cpf: '',
   data_nasc: '',
-  status_escolaridade: null
-})
+  status_escolaridade: null,
+  fotoPessoa: ''
+});
 
 async function buscarPessoa() {
-  await pessoaStore.buscarTodasAsPessoas({ search: pessoa.value.nome });
+  const resultado = await pessoaStore.buscarTodasAsPessoas({ search: pessoa.value.nome });
+
+  if (resultado && resultado.length > 0) {
+    const dadosPessoa = resultado[0];
+    pessoa.value = {
+      nome: dadosPessoa.nome,
+      cpf: dadosPessoa.cpf,
+      data_nasc: dadosPessoa.data_nasc,
+      status_escolaridade: dadosPessoa.status_escolaridade,
+      fotoPessoa: dadosPessoa.fotoPessoa
+    };
+  } else {
+    pessoa.value = {
+      nome: '',
+      cpf: '',
+      data_nasc: '',
+      status_escolaridade: null,
+      fotoPessoa: ''
+    };
+    alert('Nenhuma pessoa encontrada!');
+  }
 }
 
 onMounted(() => {
-  pessoaStore.buscarTodasAsPessoas()
-})
+  pessoaStore.buscarTodasAsPessoas();
+});
 </script>
 
 <template>
-
-    <form @submit.prevent="enviar = buscarPessoa">
-      <div class="inputs">
+  <form @submit.prevent="buscarPessoa">
+    <div class="inputs">
       <div class="input-nome">
         <label for="nome">Nome Completo ou CPF:</label>
         <input type="text" name="nome" id="input-infos" v-model="pessoa.nome" />
       </div>
       <button type="submit" name="submit" id="input-submit">Pesquisar</button>
-  </div>
+    </div>
   </form>
-
 
   <div class="container-dados">
     <div class="infos-pessoais">
       <div class="profile-image">
-        <img src="" alt="">
+        <img :src="pessoa.fotoPessoa?.url" alt="" />
       </div>
     </div>
     <div class="dados">
@@ -46,7 +65,6 @@ onMounted(() => {
       <p>Escolaridade: {{ pessoa.status_escolaridade }}</p>
     </div>
   </div>
-
 </template>
 
 <style scoped>
