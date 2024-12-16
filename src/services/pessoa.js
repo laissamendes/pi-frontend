@@ -1,8 +1,9 @@
 import axios from 'axios'
 export default class PessoaService {
-    async buscarTodasAsPessoas() {
+    async buscarTodasAsPessoas(pessoa = '') {
         try {
-            const { data } = await axios.get('/Pessoas/?search=${pessoa}');
+            const { data } = await axios.get(`/Pessoas/?search=${pessoa}`);
+            console.log(data)
             return data;
         } catch (error) {
             console.error('Erro ao buscar pessoas:', error);

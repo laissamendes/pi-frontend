@@ -12,18 +12,20 @@ const pessoa = ref({
   fotoPessoa: ''
 });
 
-async function buscarPessoa() {
-  const resultado = await pessoaStore.buscarTodasAsPessoas({ search: pessoa.value.nome });
+const pesquisa = ref('')
 
+const dadosEncontrados = ref(false);
+
+async function buscarPessoa() {
+  await pessoaStore.buscarTodasAsPessoas(pesquisa.value);
+  const resultado = pessoaStore.pessoas
+  console.log(resultado)
   if (resultado && resultado.length > 0) {
     const dadosPessoa = resultado[0];
     pessoa.value = {
-      nome: dadosPessoa.nome,
-      cpf: dadosPessoa.cpf,
-      data_nasc: dadosPessoa.data_nasc,
-      status_escolaridade: dadosPessoa.status_escolaridade,
-      fotoPessoa: dadosPessoa.fotoPessoa
+      ...dadosPessoa
     };
+    dadosEncontrados.value = true;
   } else {
     pessoa.value = {
       nome: '',
@@ -32,6 +34,8 @@ async function buscarPessoa() {
       status_escolaridade: null,
       fotoPessoa: ''
     };
+    pesquisa.value = ''
+    dadosEncontrados.value = false;
     alert('Nenhuma pessoa encontrada!');
   }
 }
@@ -45,17 +49,17 @@ onMounted(() => {
   <form @submit.prevent="buscarPessoa">
     <div class="inputs">
       <div class="input-nome">
-        <label for="nome">Nome Completo ou CPF:</label>
-        <input type="text" name="nome" id="input-infos" v-model="pessoa.nome" />
+        <label for="nome">Nome Completo:</label>
+        <input type="text" name="nome" id="input-infos" v-model="pesquisa" />
       </div>
       <button type="submit" name="submit" id="input-submit">Pesquisar</button>
     </div>
   </form>
 
-  <div class="container-dados">
+  <div v-if="dadosEncontrados" class="container-dados">
     <div class="infos-pessoais">
       <div class="profile-image">
-        <img :src="pessoa.fotoPessoa?.url" alt="" />
+        <img :src="pessoa.fotoPessoa?.url" alt="Foto da pessoa" />
       </div>
     </div>
     <div class="dados">

@@ -7,8 +7,8 @@ const pessoaService = new PessoaService()
 export const usePessoaStore = defineStore('pessoa', () => {
     const pessoas = ref([])
 
-    async function buscarTodasAsPessoas() {
-        const data = await pessoaService.buscarTodasAsPessoas()
+    async function buscarTodasAsPessoas(pessoa) {
+        const data = await pessoaService.buscarTodasAsPessoas(pessoa)
         pessoas.value = data.results
     }
 

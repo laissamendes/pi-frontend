@@ -1,16 +1,16 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 import { useAnimalStore } from '@/stores/animal';
-import { useUploaderStore } from '@/stores/uploader';
+// import { useUploaderStore } from '@/stores/uploader';
 
 const Animalstore = useAnimalStore()
-const uploaderStore = useUploaderStore();
-const file = ref(null);
+// const uploaderStore = useUploaderStore();
+// const file = ref(null);
 
-const uploadImage = (e) => {
-  file.value = e.target.files[0];
-  previewImage.value = URL.createObjectURL(e.target.files[0]);
-};
+// const uploadImage = (e) => {
+//   file.value = e.target.files[0];
+//   previewImage.value = URL.createObjectURL(e.target.files[0]);
+// };
 const animal = ref({
     nome: '',
     especie: '',
@@ -18,15 +18,15 @@ const animal = ref({
 })
 
 async function registrarAnimal() {
-  await Animalstore.adicionarAnimal(animal.value)
-  fotoAnimal.attachment_key = await uploaderStore.uploadImage(file.value);
-  await useAnimalStore.createAnimal(fotoAnimal);
-  Object.assign(fotoAnimal, {
-    file: '',
-    description: '',
-    attachment_key: '',
-    uploaded_on: ''
-  });
+//   animal.image_attachment_key = await uploaderStore.uploadImage(file.value);
+//   await useAnimalStore.createAnimal(animal);
+//   Object.assign(animal, {
+//     file: '',
+//     description: '',
+//     image_attachment_key: '',
+//     uploaded_on: ''
+//   });
+  await Animalstore.adicionarAnimal(animal.value);
 }
 
 onMounted(() => {
