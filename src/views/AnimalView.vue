@@ -10,8 +10,9 @@ const animal = ref({
 })
 
 async function registrarAnimal() {
-    await Animalstore.adicionarAnimal(animal.value)
+  await Animalstore.adicionarAnimal(animal.value)
 }
+
 onMounted(() => {
     Animalstore.buscarTodosOsAnimais()
 })
@@ -37,15 +38,13 @@ function previewImage(event) {
             <h2>Animais Cadastrados </h2>
             <div class="container-registros">
                 <div class="registros">
-                    <div>
                         <ul style="list-style-type: none;">
                             <li v-for="animal in Animalstore.animais" :key="animal.id" class="card">
-                                <div class="caramelo">{{ animal.fotoAnimal }}</div>
+                            <img :src="animal.fotoAnimal?.url" alt="" style="width:100px; border-radius: 10px;">
                                 <p>Nome: {{ animal.nome }}</p>
                                 <p>Espécie: {{ animal.especie }}</p>
                             </li>
                         </ul>
-                    </div>
                 </div>
             </div>
         </div>
@@ -81,26 +80,6 @@ function previewImage(event) {
     padding: 20px;
 }
 
-.caramelo {
-    border-radius: 50px;
-    width: 171px;
-    height: 179px;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.255);
-    margin: 20px;
-}
-
-.btn-prontuario {
-    background-color: #283618;
-    color: #fefae0;
-    border-radius: 20px;
-    padding: 10px 20px;
-    font-size: 20px;
-    cursor: pointer;
-    width: 250px;
-    height: 50px;
-    border-style: none;
-}
-
 .btn-imagem {
     background-color: #283618;
     color: #fefae0;
@@ -128,19 +107,6 @@ function previewImage(event) {
 
 button:hover {
     background-color: #374b21;
-}
-
-.registros {
-    width: 600px;
-    height: 250px;
-    background-color: rgba(96, 108, 56, 0.74);
-    border-radius: 30px;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    flex-direction: row;
-    padding: 15px;
-    margin: 30px;
 }
 
 .cadastrar {
@@ -203,6 +169,10 @@ h2 {
     padding: 20px;
 }
 
+.animais-cadastrados{
+    margin-top: 250px;
+}
+
 input {
     background-color: rgba(254, 250, 224, 1);
     color: rgba(0, 0, 0, 0.50);
@@ -224,29 +194,6 @@ input {
     margin-top: 40px;
     border-style: none;
 
-}
-
-.prontuario-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-}
-
-.prontuario-modal {
-    width: 1350px;
-    height: 700px;
-    background-color: rgb(112, 122, 80);
-    padding: 20px;
-    border-radius: 40px;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
-    max-width: 90%;
-    position: relative;
 }
 
 h1 {
@@ -271,12 +218,6 @@ span {
     color: #FEFAE0;
 }
 
-.container-prontuario {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    margin: 10px;
-}
-
 #day,
 #month,
 #year {
@@ -298,43 +239,15 @@ span {
     margin: 30px;
 }
 
-.desc-prontuario {
-    height: 400px;
-}
-
-.input-prontuario {
-    margin: 30px;
-}
-
 @media (max-width: 1200px) {
     .container {
         flex-direction: column;
         align-items: center;
     }
-
-    .caramelo {
-        width: 150px;
-        height: 150px;
-    }
-
-    .prontuario-modal {
-        width: 80%;
-        top: 10%;
-    }
 }
 
 @media (max-width: 480px) {
     .container {
-        padding: 10px;
-    }
-
-    .caramelo {
-        width: 100px;
-        height: 100px;
-    }
-
-    .prontuario-modal {
-        width: 90%;
         padding: 10px;
     }
 
@@ -345,14 +258,41 @@ span {
     #day,
     #month,
     #year,
-    .input-prontuario,
     .input-left,
     .input-right,
-    .container-prontuario,
     .container {
         grid-template-columns: 1fr;
         align-items: center;
         max-width: 100%;
     }
+}
+.card {
+    background-color: rgba(96, 108, 56, 0.74); 
+    border-radius: 10px; 
+    padding: 15px; 
+    margin-bottom: 10px; 
+    color: white; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center;
+}
+.file-input::-webkit-file-upload-button {
+  visibility: hidden;
+}
+
+.file-input::before {
+  content: 'Escolher Arquivo';
+  display: inline-block;
+  background: #fefae0;
+  color: rgb(82, 82, 82);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.file-input:hover::before {
+  background-color: #f7f1ca;
 }
 </style>
