@@ -186,7 +186,7 @@ h2 {
 }
 
 .animais-cadastrados{
-    margin-top: 250px;
+    margin-top: 500px;
 }
 
 input {

@@ -59,7 +59,8 @@ onMounted(() => {
   <div v-if="dadosEncontrados" class="container-dados">
     <div class="infos-pessoais">
       <div class="profile-image">
-        <img :src="pessoa.fotoPessoa?.url" alt="Foto da pessoa" />
+        <img :src="pessoa.fotoPessoa?.url" alt="Foto da pessoa" style="border-radius: 50%;width: 20rem;
+  height: 20rem;"/>
       </div>
     </div>
     <div class="dados">
